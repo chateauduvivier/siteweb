@@ -24,24 +24,10 @@
     
     <!-- Hero Section avec Vidéo -->
     <section class="hero-section" id="accueil">
-        <!-- Option 1: Vidéo YouTube en iframe -->
+        <!-- Vidéo YouTube avec autoplay forcé -->
         <div class="video-container">
-            <iframe 
-                class="hero-video"
-                src="https://www.youtube.com/embed/l6XMvb_TKRY?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1&playlist=l6XMvb_TKRY" 
-                frameborder="0" 
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
+            <div id="youtube-player"></div>
         </div>
-        
-        <!-- Option 2: Fallback avec vidéo locale (décommentez si vous avez une vidéo locale) -->
-        <!-- 
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="videos/chateau-hero.mp4" type="video/mp4">
-            <img src="images/chateau-hero.jpg" alt="Château du Vivier">
-        </video>
-        -->
         
         <div class="hero-overlay"></div>
         <div class="hero-content animate-on-scroll">
@@ -50,6 +36,47 @@
             <a href="#decouvrir" class="btn btn-white">Découvrir notre histoire</a>
         </div>
     </section>
+
+    <!-- Script YouTube API pour autoplay -->
+    <script>
+        // YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                videoId: 'l6XMvb_TKRY',
+                playerVars: {
+                    'autoplay': 1,
+                    'mute': 1,
+                    'controls': 0,
+                    'showinfo': 0,
+                    'rel': 0,
+                    'loop': 1,
+                    'playlist': 'l6XMvb_TKRY',
+                    'playsinline': 1,
+                    'modestbranding': 1,
+                    'iv_load_policy': 3,
+                    'disablekb': 1,
+                    'fs': 0
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.playVideo();
+                        event.target.mute();
+                    },
+                    'onStateChange': function(event) {
+                        if (event.data === YT.PlayerState.ENDED) {
+                            player.playVideo();
+                        }
+                    }
+                }
+            });
+        }
+    </script>
 
     <!-- Section Histoire -->
     <section class="section" id="decouvrir">
