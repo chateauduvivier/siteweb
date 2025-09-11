@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez le Château du Vivier pour organiser votre mariage ou événement. Visites privées sur rendez-vous. Seine-et-Marne, 45km de Paris.">
+    <meta name="keywords" content="contact château vivier, visite château, devis mariage, réservation événement">
+    
+    <title>Contact - Château du Vivier | Visites & Réservations</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Le menu sera injecté ici par menu.js -->
+    
+    <!-- Hero Section -->
+    <section class="hero-section hero-page">
+        <img src="images/contact-hero.jpg" alt="Contact Château du Vivier" class="hero-video">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Contactez-nous</h1>
+            <p class="hero-subtitle">Créons ensemble votre événement d'exception</p>
+        </div>
+    </section>
+
+    <!-- Section Contact Principal -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Visitez le Château Royal du Vivier</h2>
+            <div class="section-content animate-on-scroll">
+                <p>
+                    Nous serions ravis de vous accueillir pour une visite privée du domaine. 
+                    Découvrez nos espaces de réception, notre parc de 7 hectares et imaginez 
+                    votre événement dans ce cadre historique unique.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px;">
+                <!-- Formulaire de Contact -->
+                <div class="animate-on-scroll">
+                    <h3 style="font-size: 2rem; margin-bottom: 30px;">Demande de Renseignements</h3>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="eventType">Type d'événement *</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="">Sélectionnez...</option>
+                                <option value="mariage">Mariage</option>
+                                <option value="seminaire">Séminaire d'entreprise</option>
+                                <option value="soiree">Soirée d'entreprise</option>
+                                <option value="anniversaire">Anniversaire</option>
+                                <option value="autre">Autre événement</option>
+                                <option value="visite">Visite du château</option>
+                            </select>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="firstName">Prénom *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Nom *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="date">Date souhaitée</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests">Nombre d'invités</label>
+                                <input type="number" id="guests" name="guests" min="1" max="400">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Votre message *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Décrivez-nous votre projet..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; font-size: 14px;">
+                                <input type="checkbox" id="newsletter" name="newsletter" style="width: auto; margin-right: 10px;">
+                                Je souhaite recevoir les actualités du Château du Vivier
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Envoyer ma demande</button>
+                    </form>
+                </div>
+                
+                <!-- Informations de Contact -->
+                <div class="animate-on-scroll">
+                    <h3 style="font-size: 2rem; margin-bottom: 30px;">Informations Pratiques</h3>
+                    
+                    <div style="background: var(--color-bg); padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+                        <h4 style="color: var(--color-primary); margin-bottom: 20px;">📞 Contact Direct</h4>
+                        <p><strong>Gaëtan Delbarre</strong><br>
+                        Responsable des visites et événements</p>
+                        <p style="margin-top: 15px;">
+                            <strong>Téléphone :</strong><br>
+                            <a href="tel:0786852137" style="font-size: 1.3rem;">07 86 85 21 37</a>
+                        </p>
+                        <p style="margin-top: 15px;">
+                            <strong>Email :</strong><br>
+                            <a href="mailto:visitechateauduvivier@gmail.com">visitechateauduvivier@gmail.com</a>
+                        </p>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: var(--shadow-md); margin-bottom: 30px;">
+                        <h4 style="color: var(--color-primary); margin-bottom: 20px;">📍 Localisation</h4>
+                        <p><strong>Château du Vivier</strong><br>
+                        Seine-et-Marne (77)<br>
+                        Île-de-France</p>
+                        <p style="margin-top: 15px;">
+                            <strong>Distances :</strong><br>
+                            • 45 km de Paris<br>
+                            • 35 minutes de Paris Bercy<br>
+                            • 20 minutes de Melun<br>
+                            • 15 minutes de Fontainebleau
+                        </p>
+                    </div>
+                    
+                    <div style="background: var(--color-bg); padding: 30px; border-radius: 10px;">
+                        <h4 style="color: var(--color-primary); margin-bottom: 20px;">🕐 Horaires de Visite</h4>
+                        <p><strong>Visites sur rendez-vous uniquement</strong></p>
+                        <p style="margin-top: 15px;">
+                            Du lundi au samedi<br>
+                            10h00 - 18h00
+                        </p>
+                        <p style="margin-top: 15px;">
+                            <em>Les visites durent environ 1h30 et incluent 
+                            la découverte du château, de la chapelle, 
+                            des salles de réception et du parc.</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Comment Venir</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px;">
+                <div class="animate-on-scroll">
+                    <h3 style="margin-bottom: 20px;">🚗 En Voiture</h3>
+                    <ul>
+                        <li><strong>Depuis Paris :</strong> A4 puis A5, sortie 15 (45 min)</li>
+                        <li><strong>Depuis Melun :</strong> D606 direction Fontainebleau (20 min)</li>
+                        <li><strong>Depuis Fontainebleau :</strong> D606 direction Melun (15 min)</li>
+                    </ul>
+                    <p style="margin-top: 20px;">
+                        <strong>Parking :</strong> 150 places gratuites dans l'enceinte du château
+                    </p>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <h3 style="margin-bottom: 20px;">🚆 En Transport</h3>
+                    <ul>
+                        <li><strong>Train :</strong> Gare de Melun (Ligne R depuis Paris)</li>
+                        <li><strong>Puis taxi :</strong> 20 minutes depuis la gare</li>
+                        <li><strong>Navettes :</strong> Possibles pour groupes (nous consulter)</li>
+                    </ul>
+                    <p style="margin-top: 20px;">
+                        <strong>Héliport :</strong> Atterrissage possible dans le parc
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Placeholder pour la carte -->
+            <div style="margin-top: 50px; background: #e0e0e0; height: 400px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <p style="text-align: center; color: #666;">
+                    <strong>Carte Interactive</strong><br>
+                    Château du Vivier<br>
+                    Seine-et-Marne (77)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Questions Fréquentes</h2>
+            
+            <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item animate-on-scroll" style="margin-bottom: 20px;">
+                    <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--color-bg); padding: 20px; border-radius: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h4>Peut-on visiter le château avant de réserver ?</h4>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding: 20px; background: white; border-radius: 0 0 10px 10px;">
+                        <p>Bien sûr ! Nous organisons des visites privées sur rendez-vous. 
+                        Contactez Gaëtan Delbarre au 07 86 85 21 37 pour planifier votre visite. 
+                        La visite dure environ 1h30 et vous permettra de découvrir tous nos espaces.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll" style="margin-bottom: 20px;">
+                    <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--color-bg); padding: 20px; border-radius: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h4>Quelle est la capacité maximale du château ?</h4>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding: 20px; background: white; border-radius: 0 0 10px 10px;">
+                        <p>Le château peut accueillir jusqu'à 220 personnes en dîner assis 
+                        dans la Salle Charles VII, et jusqu'à 350 personnes en cocktail. 
+                        Pour des événements plus intimes, la Salle Philippe Le Bel 
+                        accueille jusqu'à 120 convives.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll" style="margin-bottom: 20px;">
+                    <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--color-bg); padding: 20px; border-radius: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h4>Y a-t-il des hébergements à proximité ?</h4>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding: 20px; background: white; border-radius: 0 0 10px 10px;">
+                        <p>Nous travaillons avec plusieurs hôtels partenaires dans un rayon 
+                        de 10-15 km. Nous pouvons vous fournir une liste d'hébergements 
+                        avec des tarifs préférentiels pour vos invités.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll" style="margin-bottom: 20px;">
+                    <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--color-bg); padding: 20px; border-radius: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h4>Le château est-il accessible aux personnes à mobilité réduite ?</h4>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding: 20px; background: white; border-radius: 0 0 10px 10px;">
+                        <p>Oui, nos principales salles de réception sont accessibles aux PMR. 
+                        Des rampes d'accès et des sanitaires adaptés sont disponibles. 
+                        N'hésitez pas à nous signaler vos besoins spécifiques.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll" style="margin-bottom: 20px;">
+                    <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--color-bg); padding: 20px; border-radius: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h4>Peut-on organiser une cérémonie religieuse dans la chapelle ?</h4>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding: 20px; background: white; border-radius: 0 0 10px 10px;">
+                        <p>Absolument ! Notre Sainte Chapelle du XIVe siècle est consacrée 
+                        et peut accueillir des cérémonies religieuses catholiques. 
+                        Elle peut également servir de cadre pour des cérémonies laïques. 
+                        Capacité : 150 personnes assises.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll" style="margin-bottom: 20px;">
+                    <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--color-bg); padding: 20px; border-radius: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h4>Quels sont les tarifs de location ?</h4>
+                        <span style="font-size: 1.5rem;">+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none; padding: 20px; background: white; border-radius: 0 0 10px 10px;">
+                        <p>Nos tarifs varient selon la saison, le jour de la semaine et 
+                        la formule choisie. Pour les mariages, comptez à partir de 150€ 
+                        par personne tout compris. Pour les événements d'entreprise, 
+                        nous établissons des devis sur mesure. Contactez-nous pour 
+                        une proposition personnalisée.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section section-alt">
+        <div class="container text-center">
+            <h2 class="section-title animate-on-scroll">Prêt à Créer Votre Événement ?</h2>
+            <p class="section-content animate-on-scroll">
+                Notre équipe est à votre écoute pour répondre à toutes vos questions 
+                et vous accompagner dans l'organisation de votre événement
+            </p>
+            
+            <div class="animate-on-scroll" style="margin-top: 50px;">
+                <div style="display: inline-flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center;">
+                    <a href="tel:0786852137" class="btn">
+                        📞 Appeler maintenant
+                    </a>
+                    <span style="font-size: 1.2rem;">ou</span>
+                    <a href="mailto:visitechateauduvivier@gmail.com" class="btn btn-outline">
+                        ✉️ Envoyer un email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Le footer sera injecté ici par menu.js -->
+    
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script>
+        // Toggle FAQ
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span');
+            
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                icon.textContent = '−';
+            } else {
+                answer.style.display = 'none';
+                icon.textContent = '+';
+            }
+        }
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer les données du formulaire
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simuler l'envoi
+            alert('Merci pour votre demande ! Nous vous recontacterons dans les 24 heures.');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.ChateauVivier) {
+                ChateauVivier.initSmoothScroll();
+                ChateauVivier.initLazyLoading();
+                ChateauVivier.initScrollAnimations();
+            }
+        });
+    </script>
+</body>
+</html>
