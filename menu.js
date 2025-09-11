@@ -96,10 +96,15 @@ function handleNavigationScroll() {
     const nav = document.getElementById('navigation');
     let lastScroll = 0;
     
+    // Déterminer si on est sur la page d'accueil ou une page avec hero
+    const heroSection = document.querySelector('.hero-section');
+    const heroHeight = heroSection ? heroSection.offsetHeight : 0;
+    
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 100) {
+        // Ajouter la classe scrolled quand on dépasse la section hero
+        if (currentScroll > (heroHeight * 0.8)) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
@@ -116,6 +121,11 @@ function handleNavigationScroll() {
         
         lastScroll = currentScroll;
     });
+    
+    // Check initial state
+    if (window.pageYOffset > (heroHeight * 0.8)) {
+        nav.classList.add('scrolled');
+    }
 }
 
 function markActivePage() {
