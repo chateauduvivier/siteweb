@@ -24,7 +24,14 @@
     
     <!-- Hero Section avec Vidéo -->
     <section class="hero-section" id="accueil">
-        <!-- Vidéo YouTube avec autoplay forcé -->
+        <!-- Image de fond en fallback -->
+        <div class="hero-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920" 
+                 alt="Château du Vivier" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        
+        <!-- Vidéo YouTube -->
         <div class="video-container">
             <div id="youtube-player"></div>
         </div>
@@ -36,47 +43,6 @@
             <a href="#decouvrir" class="btn btn-white">Découvrir notre histoire</a>
         </div>
     </section>
-
-    <!-- Script YouTube API pour autoplay -->
-    <script>
-        // YouTube IFrame API
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtube-player', {
-                videoId: 'l6XMvb_TKRY',
-                playerVars: {
-                    'autoplay': 1,
-                    'mute': 1,
-                    'controls': 0,
-                    'showinfo': 0,
-                    'rel': 0,
-                    'loop': 1,
-                    'playlist': 'l6XMvb_TKRY',
-                    'playsinline': 1,
-                    'modestbranding': 1,
-                    'iv_load_policy': 3,
-                    'disablekb': 1,
-                    'fs': 0
-                },
-                events: {
-                    'onReady': function(event) {
-                        event.target.playVideo();
-                        event.target.mute();
-                    },
-                    'onStateChange': function(event) {
-                        if (event.data === YT.PlayerState.ENDED) {
-                            player.playVideo();
-                        }
-                    }
-                }
-            });
-        }
-    </script>
 
     <!-- Section Histoire -->
     <section class="section" id="decouvrir">
