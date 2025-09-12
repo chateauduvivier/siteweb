@@ -45,14 +45,6 @@ function createNavigation() {
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
                 
-                <!-- Encadré Histoire du Château -->
-                <div class="nav-histoire">
-                    <a href="histoire.html">
-                        <span class="histoire-title">L'Histoire du Château</span>
-                        <span class="histoire-subtitle">Depuis 1314</span>
-                    </a>
-                </div>
-                
                 <!-- Menu Mobile Toggle -->
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
