@@ -15,9 +15,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: 'Crimson Text', serif;
+    font-weight: 400;
+    font-style: italic;
     line-height: 1.2;
+    letter-spacing: 0.5px;
 }
 
 a {
@@ -26,14 +28,13 @@ a {
     transition: all 0.3s ease;
 }
 
-/* Navigation */
+/* Navigation transparente */
 .navigation {
     position: fixed;
-    top: 0;
+    top: 30px; /* Un peu plus bas comme demandé */
     left: 0;
     width: 100%;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: transparent; /* Pas de fond */
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -44,18 +45,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    height: 80px;
+    padding: 0 40px;
+    height: 60px;
 }
 
-/* Logo et vidéo à gauche */
+/* Logo à gauche */
 .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.nav-logo-section {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -64,52 +59,43 @@ a {
 .castle-icon {
     width: 30px;
     height: 30px;
-    fill: #8B7355;
+    fill: white;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
 
 .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #333;
-    white-space: nowrap;
+    font-family: 'Crimson Text', serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
 }
 
-/* Mini vidéo dans la navigation */
-.nav-video-container {
-    width: 120px;
-    height: 50px;
-    overflow: hidden;
-    border-radius: 4px;
-    position: relative;
-}
-
-.nav-video-container iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-/* Menu principal */
+/* Menu principal centré */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 35px;
     list-style: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-menu > li > a {
-    color: #333;
-    font-size: 14px;
-    font-weight: 500;
+    font-family: 'Crimson Text', serif;
+    color: white;
+    font-size: 17px;
+    font-weight: 400;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     padding: 10px 5px;
     position: relative;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
 
 .nav-menu > li > a::after {
@@ -119,7 +105,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background: #8B7355;
+    background: white;
     transition: width 0.3s ease;
 }
 
@@ -128,25 +114,43 @@ a {
     width: 100%;
 }
 
-/* Bouton Nous Contacter spécial */
-.nav-contact {
-    background: #8B7355;
-    color: white !important;
-    padding: 10px 20px !important;
+/* Encadré Histoire du Château à droite */
+.nav-histoire {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 4px;
+    padding: 8px 20px;
     transition: all 0.3s ease;
 }
 
-.nav-contact:hover {
-    background: #6d5a44;
+.nav-histoire a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.histoire-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 15px;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.histoire-subtitle {
+    font-size: 11px;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+.nav-histoire:hover {
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }
 
-.nav-contact::after {
-    display: none !important;
-}
-
-/* Dropdown menus */
+/* Dropdown menus transparents */
 .has-dropdown {
     position: relative;
 }
@@ -155,15 +159,16 @@ a {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    background: rgba(255, 255, 255, 0.98);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    width: 220px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 240px;
     border-radius: 4px;
     padding: 10px 0;
-    margin-top: 10px;
+    margin-top: 15px;
     list-style: none;
     z-index: 1000;
 }
@@ -173,20 +178,22 @@ a {
 }
 
 .dropdown-menu li a {
+    font-family: 'Crimson Text', serif;
     display: block;
-    padding: 12px 20px;
-    color: #333;
-    font-size: 13px;
+    padding: 12px 25px;
+    color: white;
+    font-size: 15px;
     font-weight: 400;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .dropdown-menu li a:hover {
-    background: rgba(139, 115, 85, 0.1);
-    padding-left: 25px;
-    color: #8B7355;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
 }
 
 .has-dropdown:hover .dropdown-menu {
@@ -197,19 +204,63 @@ a {
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateX(-50%) translateY(-10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
     }
 }
 
-/* Navigation scrollée */
+/* Navigation scrollée - devient blanche */
 .navigation.scrolled {
+    top: 0;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navigation.scrolled .nav-container {
+    height: 70px;
+}
+
+.navigation.scrolled .nav-logo {
+    color: #333;
+    text-shadow: none;
+}
+
+.navigation.scrolled .castle-icon {
+    fill: #8B7355;
+    filter: none;
+}
+
+.navigation.scrolled .nav-menu > li > a {
+    color: #333;
+    text-shadow: none;
+}
+
+.navigation.scrolled .nav-menu > li > a::after {
+    background: #8B7355;
+}
+
+.navigation.scrolled .nav-histoire {
+    background: #8B7355;
+    border: none;
+}
+
+.navigation.scrolled .dropdown-menu {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(139, 115, 85, 0.2);
+}
+
+.navigation.scrolled .dropdown-menu li a {
+    color: #333;
+    text-shadow: none;
+}
+
+.navigation.scrolled .dropdown-menu li a:hover {
+    background: rgba(139, 115, 85, 0.1);
+    color: #8B7355;
 }
 
 /* Mobile menu toggle */
@@ -229,9 +280,13 @@ a {
 .mobile-menu-toggle span {
     width: 25px;
     height: 2px;
-    background: #333;
+    background: white;
     margin: 3px 0;
     transition: all 0.3s ease;
+}
+
+.navigation.scrolled .mobile-menu-toggle span {
+    background: #333;
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
@@ -255,7 +310,7 @@ a {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-top: 0; /* Pas de marge, le menu est au-dessus */
+    margin-top: 0;
 }
 
 .video-wrapper {
@@ -293,37 +348,45 @@ a {
     color: white;
     z-index: 1;
     padding: 0 20px;
-    margin-top: 80px; /* Pour compenser la hauteur du menu */
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
 }
 
 .hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
     font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 30px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
 }
 
 .btn-hero {
     display: inline-block;
     padding: 15px 40px;
-    background: #8B7355;
+    background: rgba(139, 115, 85, 0.9);
     color: white;
     border-radius: 4px;
-    font-size: 16px;
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     margin: 0 10px;
+    backdrop-filter: blur(10px);
 }
 
 .btn-hero:hover {
-    background: #6d5a44;
+    background: rgba(139, 115, 85, 1);
     transform: translateY(-2px);
 }
 
@@ -333,8 +396,7 @@ a {
 }
 
 .btn-hero.btn-secondary:hover {
-    background: white;
-    color: #333;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* Sections */
@@ -354,9 +416,13 @@ a {
 }
 
 .section-header h2 {
-    font-size: 3rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 20px;
     color: #333;
+    letter-spacing: 1px;
 }
 
 .section-divider {
@@ -371,6 +437,7 @@ a {
     line-height: 1.8;
     color: #666;
     font-family: 'Crimson Text', serif;
+    font-style: italic;
 }
 
 /* Cards */
@@ -405,9 +472,13 @@ a {
 }
 
 .card h3 {
-    font-size: 1.5rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 15px;
     color: #333;
+    letter-spacing: 0.5px;
 }
 
 .card p {
@@ -439,6 +510,7 @@ a {
     margin-bottom: 20px;
     color: #8B7355;
     letter-spacing: 0.5px;
+    font-size: 1.3rem;
 }
 
 .footer-section p {
@@ -475,14 +547,29 @@ a {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    .nav-menu {
+        gap: 25px;
+    }
+    
+    .nav-menu > li > a {
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     /* Navigation mobile */
-    .nav-video-container {
-        display: none;
+    .navigation {
+        top: 0;
+        background: white;
     }
     
     .nav-container {
         height: 60px;
+    }
+    
+    .nav-histoire {
+        display: none;
     }
     
     .nav-menu {
@@ -499,6 +586,8 @@ a {
         box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         overflow-y: auto;
+        transform: none;
+        left: auto;
     }
     
     .nav-menu.active {
@@ -514,6 +603,7 @@ a {
         color: #333 !important;
         font-size: 16px;
         padding: 10px 0;
+        text-shadow: none;
     }
     
     .mobile-menu-toggle {
@@ -527,6 +617,13 @@ a {
         box-shadow: none;
         padding-left: 20px;
         margin-top: 0;
+        transform: none;
+        border: none;
+    }
+    
+    .dropdown-menu li a {
+        color: #666 !important;
+        text-shadow: none;
     }
     
     .has-dropdown.active .dropdown-menu {
@@ -539,6 +636,16 @@ a {
     
     .has-dropdown.active .dropdown-menu {
         display: block !important;
+    }
+    
+    .nav-logo {
+        color: #333;
+        text-shadow: none;
+    }
+    
+    .castle-icon {
+        fill: #8B7355;
+        filter: none;
     }
     
     /* Hero mobile */
@@ -604,7 +711,9 @@ a {
     background: #8B7355;
     color: white;
     border-radius: 4px;
-    font-size: 14px;
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
