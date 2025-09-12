@@ -85,13 +85,6 @@ function createNavigation() {
 function addDropdownStyles() {
     const style = document.createElement('style');
     style.textContent = `
-        /* Uniformiser la taille du menu principal */
-        .nav-menu > li > a {
-            font-size: 14px !important;
-            font-weight: 400;
-            letter-spacing: 1.5px;
-        }
-        
         /* Styles pour les sous-menus dropdown */
         .nav-menu .has-dropdown {
             position: relative;
@@ -103,7 +96,7 @@ function addDropdownStyles() {
             top: 100%;
             left: 0;
             background: transparent;
-            width: 220px; /* Taille fixe intermédiaire pour tous */
+            width: auto;
             padding: 8px 0;
             margin: 0;
             list-style: none;
@@ -129,14 +122,12 @@ function addDropdownStyles() {
             padding: 10px 20px;
             color: white !important;
             text-decoration: none;
-            font-size: 13px; /* Même taille que menu principal */
+            font-size: 14px;
             font-weight: 300;
             white-space: nowrap;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
         
         /* Texte noir quand la nav est scrollée */
