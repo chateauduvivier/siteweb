@@ -93,21 +93,21 @@ function addDropdownStyles() {
             position: absolute;
             top: 100%;
             left: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: transparent;
             min-width: 250px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            padding: 5px 0;
+            padding: 8px 0;
             margin: 0;
             list-style: none;
             z-index: 1000;
         }
         
+        /* Quand la nav est scrollée, fond blanc semi-transparent */
         .navigation.scrolled .dropdown-menu {
             background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
         }
         
         .nav-menu .dropdown-menu li {
@@ -117,20 +117,32 @@ function addDropdownStyles() {
         
         .nav-menu .dropdown-menu li a {
             display: block;
-            padding: 12px 20px;
-            color: #333 !important;
+            padding: 10px 20px;
+            color: white !important;
             text-decoration: none;
             font-size: 14px;
+            font-weight: 300;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Texte noir quand la nav est scrollée */
+        .navigation.scrolled .dropdown-menu li a {
+            color: #333 !important;
         }
         
         .nav-menu .dropdown-menu li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 25px;
+        }
+        
+        .navigation.scrolled .dropdown-menu li a:hover {
             background: rgba(139, 115, 85, 0.1);
             color: #8B7355 !important;
-            padding-left: 25px;
         }
         
         /* Afficher le dropdown au survol */
