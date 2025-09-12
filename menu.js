@@ -94,7 +94,7 @@ function addDropdownStyles() {
             top: 100%;
             left: 0;
             background: transparent;
-            min-width: 250px;
+            width: auto;
             padding: 8px 0;
             margin: 0;
             list-style: none;
@@ -123,8 +123,6 @@ function addDropdownStyles() {
             font-size: 14px;
             font-weight: 300;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
