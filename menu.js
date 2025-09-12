@@ -26,12 +26,7 @@ function createNavigation() {
                         <ul class="dropdown-menu">
                             <li><a href="histoire.html">Histoire</a></li>
                             <li><a href="parc.html">Le Parc</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="has-dropdown">
-                        <a href="salles.html">NOS ESPACES</a>
-                        <ul class="dropdown-menu">
+                            <li><a href="salles.html">Nos Espaces</a></li>
                             <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
                             <li><a href="salle-philippe.html">Salle Philippe Le Bel</a></li>
                             <li><a href="salle-charles.html">Salle Charles VII</a></li>
@@ -53,6 +48,7 @@ function createNavigation() {
                         </ul>
                     </li>
                     
+                    <li><a href="portfolio.html">PORTFOLIO</a></li>
                     <li><a href="partenaires.html">PARTENAIRES</a></li>
                     <li><a href="temoignages.html">TÉMOIGNAGES</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
