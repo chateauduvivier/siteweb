@@ -1,3 +1,4 @@
+
 // menu.js - Navigation principale du Château du Vivier
 
 function createNavigation() {
