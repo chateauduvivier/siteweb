@@ -4,6 +4,7 @@ function createNavigation() {
     const nav = `
         <nav class="navigation" id="navigation">
             <div class="nav-container">
+                <!-- Logo en haut à gauche -->
                 <div class="nav-brand">
                     <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
@@ -12,6 +13,7 @@ function createNavigation() {
                     <a href="index.html" class="nav-logo">Château du Vivier</a>
                 </div>
                 
+                <!-- Menu principal centré -->
                 <ul class="nav-menu" id="navMenu">
                     <li class="has-dropdown">
                         <a href="histoire.html">LE CHÂTEAU</a>
@@ -126,7 +128,7 @@ function initMobileMenu() {
         });
         
         // Fermer le menu au clic sur un lien
-        const menuLinks = menu.querySelectorAll('a:not(.dropdown-toggle)');
+        const menuLinks = menu.querySelectorAll('a:not(.has-dropdown > a)');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.remove('active');
