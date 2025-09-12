@@ -5,25 +5,13 @@ function createNavigation() {
         <nav class="navigation" id="navigation">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <!-- Logo et vidéo à gauche -->
-                    <div class="nav-logo-section">
-                        <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
-                            <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
-                        </svg>
-                        <a href="index.html" class="nav-logo">Château du Vivier</a>
-                    </div>
-                    <div class="nav-video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/l6XMvb_TKRY?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=l6XMvb_TKRY"
-                            frameborder="0"
-                            allow="autoplay; fullscreen"
-                            title="Château du Vivier">
-                        </iframe>
-                    </div>
+                    <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
+                        <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
+                    </svg>
+                    <a href="index.html" class="nav-logo">Château du Vivier</a>
                 </div>
                 
-                <!-- Menu principal centré -->
                 <ul class="nav-menu" id="navMenu">
                     <li class="has-dropdown">
                         <a href="histoire.html">LE CHÂTEAU</a>
@@ -54,8 +42,16 @@ function createNavigation() {
                     <li><a href="portfolio.html">PORTFOLIO</a></li>
                     <li><a href="partenaires.html">PARTENAIRES</a></li>
                     <li><a href="temoignages.html">TÉMOIGNAGES</a></li>
-                    <li><a href="contact.html" class="nav-contact">NOUS CONTACTER</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
                 </ul>
+                
+                <!-- Encadré Histoire du Château -->
+                <div class="nav-histoire">
+                    <a href="histoire.html">
+                        <span class="histoire-title">L'Histoire du Château</span>
+                        <span class="histoire-subtitle">Depuis 1314</span>
+                    </a>
+                </div>
                 
                 <!-- Menu Mobile Toggle -->
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
