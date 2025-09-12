@@ -5,7 +5,7 @@ function createNavigation() {
         <nav class="navigation" id="navigation">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <!-- Castle Icon SVG -->
+                    <!-- Castle Icon SVG - masqué sur mobile -->
                     <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
                         <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
@@ -13,7 +13,7 @@ function createNavigation() {
                     <a href="index.html" class="nav-logo">Château du Vivier</a>
                 </div>
                 
-                <!-- Menu Mobile Toggle -->
+                <!-- Menu Mobile Toggle - Hamburger à droite -->
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <span></span>
                     <span></span>
@@ -33,9 +33,9 @@ function createNavigation() {
                     <li class="has-dropdown">
                         <a href="formule-mariage.html">MARIAGES</a>
                         <ul class="dropdown-menu">
+                            <li><a href="ceremonie.html">Cérémonies</a></li>
                             <li><a href="formule-mariage.html">Package Clé en Main</a></li>
                             <li><a href="menu-mariage.html">Notre Menu</a></li>
-                            <li><a href="ceremonie.html">Cérémonie</a></li>
                         </ul>
                     </li>
                     
@@ -43,6 +43,7 @@ function createNavigation() {
                         <a href="formule-entreprise.html">SÉMINAIRES</a>
                         <ul class="dropdown-menu">
                             <li><a href="formule-entreprise.html">Formules Entreprise</a></li>
+                            <li><a href="menu-seminaire.html">Notre Menu</a></li>
                         </ul>
                     </li>
                     
@@ -53,6 +54,13 @@ function createNavigation() {
                 </ul>
             </div>
         </nav>
+        
+        <!-- Bouton Château flottant pour mobile -->
+        <a href="index.html" class="mobile-home-btn" aria-label="Retour au château">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
+            </svg>
+        </a>
     `;
     
     // Insérer la navigation au début du body
@@ -77,6 +85,13 @@ function createNavigation() {
 function addDropdownStyles() {
     const style = document.createElement('style');
     style.textContent = `
+        /* Uniformiser la taille du menu principal */
+        .nav-menu > li > a {
+            font-size: 14px !important;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+        
         /* Styles pour les sous-menus dropdown */
         .nav-menu .has-dropdown {
             position: relative;
@@ -88,7 +103,7 @@ function addDropdownStyles() {
             top: 100%;
             left: 0;
             background: transparent;
-            width: auto;
+            width: 220px; /* Taille fixe intermédiaire pour tous */
             padding: 8px 0;
             margin: 0;
             list-style: none;
@@ -114,12 +129,14 @@ function addDropdownStyles() {
             padding: 10px 20px;
             color: white !important;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px; /* Même taille que menu principal */
             font-weight: 300;
             white-space: nowrap;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         /* Texte noir quand la nav est scrollée */
