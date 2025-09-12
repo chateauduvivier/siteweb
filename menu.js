@@ -93,18 +93,21 @@ function addDropdownStyles() {
             position: absolute;
             top: 100%;
             left: 0;
-            background: white;
-            min-width: 200px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-width: 250px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 4px;
-            padding: 0;
+            padding: 5px 0;
             margin: 0;
             list-style: none;
             z-index: 1000;
         }
         
         .navigation.scrolled .dropdown-menu {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
         }
         
         .nav-menu .dropdown-menu li {
@@ -118,16 +121,14 @@ function addDropdownStyles() {
             color: #333 !important;
             text-decoration: none;
             font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             transition: all 0.3s ease;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .nav-menu .dropdown-menu li:last-child a {
-            border-bottom: none;
         }
         
         .nav-menu .dropdown-menu li a:hover {
-            background: #f8f8f8;
+            background: rgba(139, 115, 85, 0.1);
             color: #8B7355 !important;
             padding-left: 25px;
         }
