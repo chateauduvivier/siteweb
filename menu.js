@@ -23,34 +23,34 @@ function createNavigation() {
                 <ul class="nav-menu" id="navMenu">
                     <li class="has-dropdown">
                         <a href="histoire.html">LE CHÂTEAU</a>
-                        <div class="dropdown">
-                            <a href="histoire.html">Histoire</a>
-                            <a href="parc.html">Le Parc</a>
-                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="histoire.html">Histoire</a></li>
+                            <li><a href="parc.html">Le Parc</a></li>
+                        </ul>
                     </li>
                     
                     <li class="has-dropdown">
                         <a href="salles.html">NOS ESPACES</a>
-                        <div class="dropdown">
-                            <a href="sainte-chapelle.html">La Sainte Chapelle</a>
-                            <a href="salle-philippe.html">Salle Philippe Le Bel</a>
-                            <a href="salle-charles.html">Salle Charles VII</a>
-                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
+                            <li><a href="salle-philippe.html">Salle Philippe Le Bel</a></li>
+                            <li><a href="salle-charles.html">Salle Charles VII</a></li>
+                        </ul>
                     </li>
                     
                     <li class="has-dropdown">
                         <a href="formule-mariage.html">MARIAGES</a>
-                        <div class="dropdown">
-                            <a href="formule-mariage.html">Nos Formules</a>
-                            <a href="ceremonie.html">Cérémonie</a>
-                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="formule-mariage.html">Nos Formules</a></li>
+                            <li><a href="ceremonie.html">Cérémonie</a></li>
+                        </ul>
                     </li>
                     
                     <li class="has-dropdown">
                         <a href="formule-entreprise.html">SÉMINAIRES</a>
-                        <div class="dropdown">
-                            <a href="formule-entreprise.html">Formules Entreprise</a>
-                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="formule-entreprise.html">Formules Entreprise</a></li>
+                        </ul>
                     </li>
                     
                     <li><a href="partenaires.html">PARTENAIRES</a></li>
@@ -63,6 +63,9 @@ function createNavigation() {
     
     // Insérer la navigation au début du body
     document.body.insertAdjacentHTML('afterbegin', nav);
+    
+    // Ajouter les styles CSS pour les dropdowns
+    addDropdownStyles();
     
     // Activer le menu mobile
     initMobileMenu();
@@ -77,28 +80,142 @@ function createNavigation() {
     initDropdowns();
 }
 
+function addDropdownStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        /* Styles pour les sous-menus dropdown */
+        .nav-menu .has-dropdown {
+            position: relative;
+        }
+        
+        .nav-menu .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            z-index: 1000;
+        }
+        
+        .navigation.scrolled .dropdown-menu {
+            background: white;
+        }
+        
+        .nav-menu .dropdown-menu li {
+            display: block;
+            width: 100%;
+        }
+        
+        .nav-menu .dropdown-menu li a {
+            display: block;
+            padding: 12px 20px;
+            color: #333 !important;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .nav-menu .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+        
+        .nav-menu .dropdown-menu li a:hover {
+            background: #f8f8f8;
+            color: #8B7355 !important;
+            padding-left: 25px;
+        }
+        
+        /* Afficher le dropdown au survol */
+        .nav-menu .has-dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeInDown 0.3s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Pour mobile, masquer les dropdowns par défaut */
+        @media (max-width: 768px) {
+            .nav-menu .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: transparent;
+                padding-left: 20px;
+            }
+            
+            .nav-menu .dropdown-menu li a {
+                color: white !important;
+                border-bottom: none;
+                padding: 10px 15px;
+            }
+            
+            .navigation.scrolled .dropdown-menu li a {
+                color: #333 !important;
+            }
+            
+            .nav-menu .has-dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .nav-menu .has-dropdown:hover .dropdown-menu {
+                display: none;
+            }
+            
+            .nav-menu .has-dropdown.active .dropdown-menu {
+                display: block !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
 function initDropdowns() {
     const dropdowns = document.querySelectorAll('.has-dropdown');
     
+    // Pour mobile uniquement - toggle au clic
     dropdowns.forEach(dropdown => {
-        let timeoutId;
+        const mainLink = dropdown.querySelector('> a');
         
-        // Afficher au survol sur desktop
-        dropdown.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 768) {
-                clearTimeout(timeoutId);
-                this.classList.add('active');
-            }
-        });
-        
-        // Masquer après un délai sur desktop
-        dropdown.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 768) {
-                timeoutId = setTimeout(() => {
-                    this.classList.remove('active');
-                }, 200);
-            }
-        });
+        if (window.innerWidth <= 768) {
+            mainLink.addEventListener('click', function(e) {
+                // Si on est sur mobile, empêcher la navigation et toggle le dropdown
+                if (dropdown.querySelector('.dropdown-menu')) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    
+                    // Fermer les autres dropdowns
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }
+    });
+    
+    // Recalculer au resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
     });
 }
 
@@ -113,14 +230,16 @@ function initMobileMenu() {
             document.body.classList.toggle('menu-open');
         });
         
-        // Fermer le menu au clic sur un lien
+        // Fermer le menu au clic sur un lien (sauf les liens principaux avec dropdown sur mobile)
         const menuLinks = menu.querySelectorAll('a');
         menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('active');
-                toggle.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
+            if (!link.parentElement.classList.contains('has-dropdown') || window.innerWidth > 768) {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('active');
+                    toggle.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            }
         });
     }
 }
@@ -230,10 +349,16 @@ function initializeLayout() {
         document.addEventListener('DOMContentLoaded', function() {
             createNavigation();
             createFooter();
+            initSmoothScroll();
+            initLazyLoading();
+            initScrollAnimations();
         });
     } else {
         createNavigation();
         createFooter();
+        initSmoothScroll();
+        initLazyLoading();
+        initScrollAnimations();
     }
 }
 
@@ -241,15 +366,18 @@ function initializeLayout() {
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const navHeight = 80;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const navHeight = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -276,8 +404,10 @@ function initLazyLoading() {
     } else {
         // Fallback pour navigateurs anciens
         images.forEach(img => {
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            }
         });
     }
 }
