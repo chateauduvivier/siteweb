@@ -5,21 +5,25 @@ function createNavigation() {
         <nav class="navigation" id="navigation">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <!-- Castle Icon SVG - masqué sur mobile -->
-                    <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
-                        <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
-                    </svg>
-                    <a href="index.html" class="nav-logo">Château du Vivier</a>
+                    <!-- Logo et vidéo à gauche -->
+                    <div class="nav-logo-section">
+                        <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
+                            <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
+                        </svg>
+                        <a href="index.html" class="nav-logo">Château du Vivier</a>
+                    </div>
+                    <div class="nav-video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/l6XMvb_TKRY?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=l6XMvb_TKRY"
+                            frameborder="0"
+                            allow="autoplay; fullscreen"
+                            title="Château du Vivier">
+                        </iframe>
+                    </div>
                 </div>
                 
-                <!-- Menu Mobile Toggle - Hamburger à droite -->
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
+                <!-- Menu principal centré -->
                 <ul class="nav-menu" id="navMenu">
                     <li class="has-dropdown">
                         <a href="histoire.html">LE CHÂTEAU</a>
@@ -50,24 +54,21 @@ function createNavigation() {
                     <li><a href="portfolio.html">PORTFOLIO</a></li>
                     <li><a href="partenaires.html">PARTENAIRES</a></li>
                     <li><a href="temoignages.html">TÉMOIGNAGES</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="contact.html" class="nav-contact">NOUS CONTACTER</a></li>
                 </ul>
+                
+                <!-- Menu Mobile Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </nav>
-        
-        <!-- Bouton Château flottant pour mobile -->
-        <a href="index.html" class="mobile-home-btn" aria-label="Retour au château">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
-            </svg>
-        </a>
     `;
     
     // Insérer la navigation au début du body
     document.body.insertAdjacentHTML('afterbegin', nav);
-    
-    // Ajouter les styles CSS pour les dropdowns
-    addDropdownStyles();
     
     // Activer le menu mobile
     initMobileMenu();
@@ -82,131 +83,33 @@ function createNavigation() {
     initDropdowns();
 }
 
-function addDropdownStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        /* Styles pour les sous-menus dropdown */
-        .nav-menu .has-dropdown {
-            position: relative;
-        }
-        
-        .nav-menu .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: transparent;
-            width: auto;
-            padding: 8px 0;
-            margin: 0;
-            list-style: none;
-            z-index: 1000;
-        }
-        
-        /* Quand la nav est scrollée, fond blanc semi-transparent */
-        .navigation.scrolled .dropdown-menu {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-        }
-        
-        .nav-menu .dropdown-menu li {
-            display: block;
-            width: 100%;
-        }
-        
-        .nav-menu .dropdown-menu li a {
-            display: block;
-            padding: 10px 20px;
-            color: white !important;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 300;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Texte noir quand la nav est scrollée */
-        .navigation.scrolled .dropdown-menu li a {
-            color: #333 !important;
-        }
-        
-        .nav-menu .dropdown-menu li a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            padding-left: 25px;
-        }
-        
-        .navigation.scrolled .dropdown-menu li a:hover {
-            background: rgba(139, 115, 85, 0.1);
-            color: #8B7355 !important;
-        }
-        
-        /* Afficher le dropdown au survol */
-        .nav-menu .has-dropdown:hover .dropdown-menu {
-            display: block;
-            animation: fadeInDown 0.3s ease;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Pour mobile, masquer les dropdowns par défaut */
-        @media (max-width: 768px) {
-            .nav-menu .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                background: transparent;
-                padding-left: 20px;
-            }
-            
-            .nav-menu .dropdown-menu li a {
-                color: white !important;
-                border-bottom: none;
-                padding: 10px 15px;
-            }
-            
-            .navigation.scrolled .dropdown-menu li a {
-                color: #333 !important;
-            }
-            
-            .nav-menu .has-dropdown.active .dropdown-menu {
-                display: block;
-            }
-            
-            .nav-menu .has-dropdown:hover .dropdown-menu {
-                display: none;
-            }
-            
-            .nav-menu .has-dropdown.active .dropdown-menu {
-                display: block !important;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
 function initDropdowns() {
     const dropdowns = document.querySelectorAll('.has-dropdown');
     
-    // Pour mobile uniquement - toggle au clic
     dropdowns.forEach(dropdown => {
-        const mainLink = dropdown.querySelector('> a');
+        let timeoutId;
         
-        if (window.innerWidth <= 768) {
+        // Afficher au survol sur desktop
+        dropdown.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                clearTimeout(timeoutId);
+                this.classList.add('active');
+            }
+        });
+        
+        // Masquer après un délai sur desktop
+        dropdown.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) {
+                timeoutId = setTimeout(() => {
+                    this.classList.remove('active');
+                }, 200);
+            }
+        });
+        
+        // Pour mobile - toggle au clic
+        const mainLink = dropdown.querySelector('> a');
+        if (mainLink && window.innerWidth <= 768) {
             mainLink.addEventListener('click', function(e) {
-                // Si on est sur mobile, empêcher la navigation et toggle le dropdown
                 if (dropdown.querySelector('.dropdown-menu')) {
                     e.preventDefault();
                     dropdown.classList.toggle('active');
@@ -218,15 +121,6 @@ function initDropdowns() {
                         }
                     });
                 }
-            });
-        }
-    });
-    
-    // Recalculer au resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
             });
         }
     });
@@ -243,16 +137,14 @@ function initMobileMenu() {
             document.body.classList.toggle('menu-open');
         });
         
-        // Fermer le menu au clic sur un lien (sauf les liens principaux avec dropdown sur mobile)
-        const menuLinks = menu.querySelectorAll('a');
+        // Fermer le menu au clic sur un lien
+        const menuLinks = menu.querySelectorAll('a:not(.dropdown-toggle)');
         menuLinks.forEach(link => {
-            if (!link.parentElement.classList.contains('has-dropdown') || window.innerWidth > 768) {
-                link.addEventListener('click', () => {
-                    menu.classList.remove('active');
-                    toggle.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                });
-            }
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
         });
     }
 }
@@ -266,8 +158,8 @@ function handleNavigationScroll() {
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
         
-        // Ajouter la classe scrolled après 100px de scroll
-        if (currentScroll > 100) {
+        // Ajouter la classe scrolled après 50px de scroll
+        if (currentScroll > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
@@ -284,11 +176,6 @@ function handleNavigationScroll() {
         
         lastScroll = currentScroll;
     });
-    
-    // Check initial state
-    if (window.pageYOffset > 100) {
-        nav.classList.add('scrolled');
-    }
 }
 
 function markActivePage() {
@@ -299,7 +186,6 @@ function markActivePage() {
         const href = link.getAttribute('href');
         if (href === currentPage) {
             link.classList.add('active');
-            // Marquer aussi le parent si c'est un sous-menu
             const parentLi = link.closest('.has-dropdown');
             if (parentLi) {
                 parentLi.querySelector('> a').classList.add('active-parent');
@@ -355,104 +241,26 @@ function createFooter() {
     document.body.insertAdjacentHTML('beforeend', footer);
 }
 
-// Fonction d'initialisation du menu et du footer
+// Fonction d'initialisation
 function initializeLayout() {
-    // Attendre que le DOM soit chargé
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             createNavigation();
             createFooter();
-            initSmoothScroll();
-            initLazyLoading();
-            initScrollAnimations();
         });
     } else {
         createNavigation();
         createFooter();
-        initSmoothScroll();
-        initLazyLoading();
-        initScrollAnimations();
     }
 }
 
-// Smooth scroll pour les ancres
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href && href !== '#') {
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const navHeight = 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-}
-
-// Lazy loading des images pour performance
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        images.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback pour navigateurs anciens
-        images.forEach(img => {
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-            }
-        });
-    }
-}
-
-// Observer pour animations au scroll
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.animate-on-scroll').forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// Initialiser toutes les fonctionnalités
+// Initialiser
 initializeLayout();
 
-// Exports pour utilisation dans d'autres scripts si nécessaire
+// Exports
 window.ChateauVivier = {
-    initSmoothScroll,
-    initLazyLoading,
-    initScrollAnimations,
     createNavigation,
-    createFooter
+    createFooter,
+    initDropdowns,
+    markActivePage
 };
