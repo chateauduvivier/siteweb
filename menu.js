@@ -97,17 +97,21 @@ function initDropdowns() {
     dropdowns.forEach(dropdown => {
         let timeoutId;
         
-        // Afficher au survol
+        // Afficher au survol sur desktop
         dropdown.addEventListener('mouseenter', function() {
-            clearTimeout(timeoutId);
-            this.classList.add('active');
+            if (window.innerWidth > 768) {
+                clearTimeout(timeoutId);
+                this.classList.add('active');
+            }
         });
         
-        // Masquer après un délai
+        // Masquer après un délai sur desktop
         dropdown.addEventListener('mouseleave', function() {
-            timeoutId = setTimeout(() => {
-                this.classList.remove('active');
-            }, 200);
+            if (window.innerWidth > 768) {
+                timeoutId = setTimeout(() => {
+                    this.classList.remove('active');
+                }, 200);
+            }
         });
         
         // Pour mobile - toggle au clic
@@ -157,17 +161,17 @@ function initMobileMenu() {
 
 function handleNavigationScroll() {
     const nav = document.getElementById('navigation');
-    let lastScroll = 0;
+    if (!nav) return;
     
-    // Déterminer si on est sur la page d'accueil ou une page avec hero
+    let lastScroll = 0;
     const heroSection = document.querySelector('.hero-section');
     const heroHeight = heroSection ? heroSection.offsetHeight : 0;
     
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
         
-        // Ajouter la classe scrolled quand on dépasse la section hero
-        if (currentScroll > (heroHeight * 0.8)) {
+        // Ajouter la classe scrolled
+        if (currentScroll > 100) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
@@ -186,7 +190,7 @@ function handleNavigationScroll() {
     });
     
     // Check initial state
-    if (window.pageYOffset > (heroHeight * 0.8)) {
+    if (window.pageYOffset > 100) {
         nav.classList.add('scrolled');
     }
 }
@@ -199,7 +203,6 @@ function markActivePage() {
         const href = link.getAttribute('href');
         if (href === currentPage) {
             link.classList.add('active');
-            // Marquer aussi le parent si c'est un sous-menu
             const parentLi = link.closest('.has-dropdown');
             if (parentLi) {
                 parentLi.querySelector('> a').classList.add('active-parent');
@@ -276,35 +279,16 @@ function createFooter() {
     document.body.insertAdjacentHTML('beforeend', footer);
 }
 
-// Fonction d'initialisation du menu et du footer
-function initializeLayout() {
-    // Attendre que le DOM soit chargé
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            createNavigation();
-            createFooter();
-            initSmoothScroll();
-            initLazyLoading();
-            initScrollAnimations();
-        });
-    } else {
-        createNavigation();
-        createFooter();
-        initSmoothScroll();
-        initLazyLoading();
-        initScrollAnimations();
-    }
-}
-
 // Smooth scroll pour les ancres
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            if (this.getAttribute('href') === '#') return;
+            const href = this.getAttribute('href');
+            if (href === '#' || href === '') return;
             
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 const navHeight = 80;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
                 window.scrollTo({
@@ -316,7 +300,7 @@ function initSmoothScroll() {
     });
 }
 
-// Lazy loading des images pour performance
+// Lazy loading des images
 function initLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
     
@@ -338,7 +322,6 @@ function initLazyLoading() {
         
         images.forEach(img => imageObserver.observe(img));
     } else {
-        // Fallback pour navigateurs anciens
         images.forEach(img => {
             img.src = img.dataset.src;
             img.removeAttribute('data-src');
@@ -357,8 +340,6 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optionnel: arrêter d'observer après l'animation
-                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -368,10 +349,29 @@ function initScrollAnimations() {
     });
 }
 
-// Initialiser toutes les fonctionnalités
+// Fonction d'initialisation
+function initializeLayout() {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            createNavigation();
+            createFooter();
+            initSmoothScroll();
+            initLazyLoading();
+            initScrollAnimations();
+        });
+    } else {
+        createNavigation();
+        createFooter();
+        initSmoothScroll();
+        initLazyLoading();
+        initScrollAnimations();
+    }
+}
+
+// Initialiser
 initializeLayout();
 
-// Exports pour utilisation dans d'autres scripts si nécessaire
+// Exports pour utilisation dans d'autres scripts
 window.ChateauVivier = {
     initSmoothScroll,
     initLazyLoading,
