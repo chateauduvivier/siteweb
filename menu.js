@@ -24,19 +24,17 @@ function createNavigation() {
                     <li class="has-dropdown">
                         <a href="histoire.html">LE CHÂTEAU</a>
                         <ul class="dropdown-menu">
-                            <li><a href="histoire.html">Histoire</a></li>
-                            <li><a href="parc.html">Le Parc</a></li>
-                            <li><a href="salles.html">Nos Espaces</a></li>
+                            <li><a href="histoire.html">L'Histoire du Château</a></li>
                             <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
-                            <li><a href="salle-philippe.html">Salle Philippe Le Bel</a></li>
-                            <li><a href="salle-charles.html">Salle Charles VII</a></li>
+                            <li><a href="salles.html">Nos Espaces</a></li>
                         </ul>
                     </li>
                     
                     <li class="has-dropdown">
                         <a href="formule-mariage.html">MARIAGES</a>
                         <ul class="dropdown-menu">
-                            <li><a href="formule-mariage.html">Nos Formules</a></li>
+                            <li><a href="formule-mariage.html">Package Clé en Main</a></li>
+                            <li><a href="menu-mariage.html">Notre Menu</a></li>
                             <li><a href="ceremonie.html">Cérémonie</a></li>
                         </ul>
                     </li>
