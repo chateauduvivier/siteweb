@@ -28,48 +28,52 @@ a {
     transition: all 0.3s ease;
 }
 
-/* Navigation transparente */
+/* Navigation */
 .navigation {
     position: fixed;
-    top: 30px; /* Un peu plus bas comme demandé */
+    top: 0;
     left: 0;
     width: 100%;
-    background: transparent; /* Pas de fond */
+    background: transparent;
     z-index: 1000;
     transition: all 0.3s ease;
+    padding: 20px 0;
 }
 
 .nav-container {
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: 60px;
+    justify-content: center;
+    position: relative;
 }
 
-/* Logo à gauche */
+/* Logo fixé en haut à gauche */
 .nav-brand {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .castle-icon {
-    width: 30px;
-    height: 30px;
-    fill: white;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+    width: 32px;
+    height: 32px;
+    fill: #000;
 }
 
 .nav-logo {
     font-family: 'Crimson Text', serif;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 400;
     font-style: italic;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: #000;
     letter-spacing: 1px;
 }
 
@@ -77,35 +81,43 @@ a {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 35px;
+    justify-content: center;
+    gap: 45px;
     list-style: none;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    height: 40px;
+}
+
+.nav-menu > li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu > li > a {
-    font-family: 'Crimson Text', serif;
-    color: white;
-    font-size: 17px;
-    font-weight: 400;
-    font-style: italic;
+    font-family: 'Lato', sans-serif;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 10px 5px;
+    letter-spacing: 2px;
+    padding: 0;
     position: relative;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-menu > li > a::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
-    background: white;
+    height: 1px;
+    background: #000;
     transition: width 0.3s ease;
 }
 
@@ -114,43 +126,7 @@ a {
     width: 100%;
 }
 
-/* Encadré Histoire du Château à droite */
-.nav-histoire {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    padding: 8px 20px;
-    transition: all 0.3s ease;
-}
-
-.nav-histoire a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-}
-
-.histoire-title {
-    font-family: 'Crimson Text', serif;
-    font-size: 15px;
-    font-style: italic;
-    letter-spacing: 0.5px;
-}
-
-.histoire-subtitle {
-    font-size: 11px;
-    opacity: 0.9;
-    margin-top: 2px;
-}
-
-.nav-histoire:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
-}
-
-/* Dropdown menus transparents */
+/* Dropdown menus */
 .has-dropdown {
     position: relative;
 }
@@ -161,14 +137,12 @@ a {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 240px;
-    border-radius: 4px;
-    padding: 10px 0;
-    margin-top: 15px;
+    margin-top: 20px;
+    background: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    min-width: 240px;
+    padding: 15px 0;
     list-style: none;
     z-index: 1000;
 }
@@ -178,24 +152,23 @@ a {
 }
 
 .dropdown-menu li a {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Lato', sans-serif;
     display: block;
-    padding: 12px 25px;
-    color: white;
-    font-size: 15px;
+    padding: 10px 25px;
+    color: #000;
+    font-size: 13px;
     font-weight: 400;
-    font-style: italic;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    letter-spacing: 1.5px;
+    transition: padding-left 0.3s ease;
 }
 
 .dropdown-menu li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    padding-left: 30px;
+    padding-left: 35px;
+    /* Pas de background, juste le décalage */
 }
 
+.has-dropdown.active .dropdown-menu,
 .has-dropdown:hover .dropdown-menu {
     display: block;
     animation: fadeInDown 0.3s ease;
@@ -212,65 +185,55 @@ a {
     }
 }
 
-/* Navigation scrollée - devient blanche */
+/* Navigation scrollée */
 .navigation.scrolled {
-    top: 0;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.navigation.scrolled .nav-container {
-    height: 70px;
+    padding: 15px 0;
 }
 
 .navigation.scrolled .nav-logo {
     color: #333;
-    text-shadow: none;
 }
 
 .navigation.scrolled .castle-icon {
     fill: #8B7355;
-    filter: none;
 }
 
 .navigation.scrolled .nav-menu > li > a {
     color: #333;
-    text-shadow: none;
 }
 
 .navigation.scrolled .nav-menu > li > a::after {
     background: #8B7355;
 }
 
-.navigation.scrolled .nav-histoire {
-    background: #8B7355;
-    border: none;
-}
-
 .navigation.scrolled .dropdown-menu {
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(139, 115, 85, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 .navigation.scrolled .dropdown-menu li a {
     color: #333;
-    text-shadow: none;
 }
 
 .navigation.scrolled .dropdown-menu li a:hover {
-    background: rgba(139, 115, 85, 0.1);
     color: #8B7355;
 }
 
 /* Mobile menu toggle */
 .mobile-menu-toggle {
     display: none;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 30px;
-    height: 30px;
+    height: 24px;
     background: none;
     border: none;
     cursor: pointer;
@@ -283,10 +246,6 @@ a {
     background: #000;
     margin: 3px 0;
     transition: all 0.3s ease;
-}
-
-.navigation.scrolled .mobile-menu-toggle span {
-    background: #333;
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
@@ -549,27 +508,32 @@ a {
 /* Responsive */
 @media (max-width: 1200px) {
     .nav-menu {
-        gap: 25px;
+        gap: 30px;
     }
     
     .nav-menu > li > a {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
 @media (max-width: 768px) {
-    /* Navigation mobile */
     .navigation {
-        top: 0;
         background: white;
+        padding: 15px 0;
     }
     
-    .nav-container {
-        height: 60px;
+    .nav-brand {
+        position: static;
+        transform: none;
     }
     
-    .nav-histoire {
-        display: none;
+    .castle-icon {
+        fill: #8B7355;
+    }
+    
+    .nav-logo {
+        color: #333;
+        font-size: 20px;
     }
     
     .nav-menu {
@@ -582,12 +546,12 @@ a {
         background: white;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: flex-start;
         padding: 80px 30px;
         box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         overflow-y: auto;
-        transform: none;
-        left: auto;
+        gap: 15px;
     }
     
     .nav-menu.active {
@@ -596,14 +560,14 @@ a {
     
     .nav-menu > li {
         width: 100%;
-        margin: 10px 0;
+        height: auto;
     }
     
     .nav-menu > li > a {
         color: #333 !important;
         font-size: 16px;
         padding: 10px 0;
-        text-shadow: none;
+        height: auto;
     }
     
     .mobile-menu-toggle {
@@ -612,18 +576,17 @@ a {
     
     .dropdown-menu {
         position: static;
+        transform: none;
         width: 100%;
         background: transparent;
-        box-shadow: none;
+        backdrop-filter: none;
         padding-left: 20px;
         margin-top: 0;
-        transform: none;
-        border: none;
     }
     
     .dropdown-menu li a {
         color: #666 !important;
-        text-shadow: none;
+        font-size: 14px;
     }
     
     .has-dropdown.active .dropdown-menu {
@@ -638,19 +601,9 @@ a {
         display: block !important;
     }
     
-    .nav-logo {
-        color: #333;
-        text-shadow: none;
-    }
-    
-    .castle-icon {
-        fill: #8B7355;
-        filter: none;
-    }
-    
     /* Hero mobile */
     .hero-section {
-        margin-top: 60px;
+        margin-top: 70px;
     }
     
     .hero-content h1 {
