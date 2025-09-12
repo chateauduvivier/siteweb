@@ -51,7 +51,7 @@ a {
 .nav-top-line {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .nav-brand {
@@ -96,6 +96,7 @@ a {
     position: relative;
 }
 
+/* STYLE DU MENU PRINCIPAL */
 .nav-menu > li > a {
     font-family: 'Lato', sans-serif;
     color: white;
@@ -105,6 +106,8 @@ a {
     letter-spacing: 2px;
     padding: 10px 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    display: inline-block;
 }
 
 .nav-menu > li > a::after {
@@ -123,7 +126,7 @@ a {
     width: 100%;
 }
 
-/* Dropdown menus - SANS SURBRILLANCE */
+/* SOUS-MENUS - EXACTEMENT LE MÊME STYLE QUE LE MENU */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -131,34 +134,46 @@ a {
     left: 50%;
     transform: translateX(-50%);
     margin-top: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    min-width: 240px;
-    padding: 15px 0;
+    background: transparent;
+    min-width: 260px;
+    padding: 10px 0;
     list-style: none;
     z-index: 1000;
-    border-radius: 4px;
 }
 
 .dropdown-menu li {
     display: block;
+    text-align: center;
+    margin: 5px 0;
 }
 
 .dropdown-menu li a {
     font-family: 'Lato', sans-serif;
-    display: block;
-    padding: 12px 25px;
     color: white;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    display: inline-block;
 }
 
-/* PAS DE SURBRILLANCE AU HOVER */
-.dropdown-menu li a:hover {
-    /* Rien - pas de changement */
+/* MÊME EFFET DE SOULIGNEMENT POUR LES SOUS-MENUS */
+.dropdown-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.dropdown-menu li a:hover::after {
+    width: 100%;
 }
 
 .has-dropdown.active .dropdown-menu,
@@ -578,6 +593,7 @@ a {
     .dropdown-menu li a {
         color: #666 !important;
         font-size: 14px;
+        text-shadow: none;
     }
     
     .has-dropdown.active .dropdown-menu {
