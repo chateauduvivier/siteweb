@@ -3,49 +3,53 @@
 function createNavigation() {
     const nav = `
         <nav class="navigation" id="navigation">
-            <div class="nav-container">
-                <!-- Logo en haut à gauche -->
-                <div class="nav-brand">
-                    <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
-                        <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
-                    </svg>
-                    <a href="index.html" class="nav-logo">Château du Vivier</a>
+            <div class="nav-wrapper">
+                <!-- Logo seul sur la première ligne -->
+                <div class="nav-top-line">
+                    <div class="nav-brand">
+                        <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
+                            <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
+                        </svg>
+                        <a href="index.html" class="nav-logo">Château du Vivier</a>
+                    </div>
                 </div>
                 
-                <!-- Menu principal centré -->
-                <ul class="nav-menu" id="navMenu">
-                    <li class="has-dropdown">
-                        <a href="histoire.html">LE CHÂTEAU</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="histoire.html">L'Histoire du Château</a></li>
-                            <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
-                            <li><a href="salles.html">Nos Espaces</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="has-dropdown">
-                        <a href="formule-mariage.html">MARIAGES</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="ceremonie.html">Cérémonies</a></li>
-                            <li><a href="formule-mariage.html">Package Clé en Main</a></li>
-                            <li><a href="menu-mariage.html">Notre Menu</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="has-dropdown">
-                        <a href="formule-entreprise.html">SÉMINAIRES</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="formule-entreprise.html">Formules Entreprise</a></li>
-                            <li><a href="menu-seminaire.html">Notre Menu</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="portfolio.html">PORTFOLIO</a></li>
-                    <li><a href="partenaires.html">PARTENAIRES</a></li>
-                    <li><a href="temoignages.html">TÉMOIGNAGES</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
-                </ul>
+                <!-- Menu sur la deuxième ligne -->
+                <div class="nav-bottom-line">
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="has-dropdown">
+                            <a href="histoire.html">LE CHÂTEAU</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="histoire.html">L'Histoire du Château</a></li>
+                                <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
+                                <li><a href="salles.html">Nos Espaces</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="has-dropdown">
+                            <a href="formule-mariage.html">MARIAGES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ceremonie.html">Cérémonies</a></li>
+                                <li><a href="formule-mariage.html">Package Clé en Main</a></li>
+                                <li><a href="menu-mariage.html">Notre Menu</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="has-dropdown">
+                            <a href="formule-entreprise.html">SÉMINAIRES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="formule-entreprise.html">Formules Entreprise</a></li>
+                                <li><a href="menu-seminaire.html">Notre Menu</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="portfolio.html">PORTFOLIO</a></li>
+                        <li><a href="partenaires.html">PARTENAIRES</a></li>
+                        <li><a href="temoignages.html">TÉMOIGNAGES</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
                 
                 <!-- Menu Mobile Toggle -->
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
