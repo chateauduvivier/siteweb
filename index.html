@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Château du Vivier - Palais Royal depuis Philippe IV Le Bel. Location de château pour mariages et événements d'entreprise en Seine-et-Marne.">
-    <title>Château du Vivier - Location Château Mariage & Événements</title>
+    <meta name="description" content="Château du Vivier - Palais Royal depuis Philippe IV Le Bel. Location pour mariages et événements d'entreprise en Seine-et-Marne, à 45km de Paris.">
+    <title>Château du Vivier - Location Château Mariage & Événements Seine-et-Marne</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section avec Vidéo Plein Écran -->
-    <section class="hero-section">
-        <div class="video-wrapper">
+    <!-- Navigation sera insérée ici par menu.js -->
+
+    <!-- Hero Section avec Vidéo -->
+    <section class="hero">
+        <div class="hero-video">
             <iframe 
                 src="https://www.youtube.com/embed/l6XMvb_TKRY?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=l6XMvb_TKRY"
                 frameborder="0"
@@ -27,98 +29,77 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="animate-on-scroll">Château du Vivier</h1>
-            <p class="hero-subtitle animate-on-scroll">Palais Royal depuis Philippe IV Le Bel</p>
-            <p class="hero-tagline animate-on-scroll">Un cadre idyllique à moins d'une heure de Paris</p>
-            <div class="hero-buttons animate-on-scroll">
-                <a href="histoire.html" class="btn-primary">Découvrir l'histoire</a>
-                <a href="contact.html" class="btn-secondary">Nous contacter</a>
+            <h1 class="hero-title">Château du Vivier</h1>
+            <p class="hero-subtitle">Un Château... Votre réception... Notre passion</p>
+            <div class="hero-buttons">
+                <a href="histoire.html" class="btn btn-outline">Découvrir l'histoire</a>
+                <a href="contact.html" class="btn">Planifier une visite</a>
             </div>
         </div>
     </section>
 
-    <!-- Section Le Château -->
+    <!-- Section Présentation -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Le Château du Vivier</h2>
+            <div class="section-header">
+                <h2>Un Lieu d'Exception en Seine-et-Marne</h2>
+                <div class="section-divider"></div>
+            </div>
             
-            <div class="content-grid">
-                <div class="content-text animate-on-scroll">
-                    <p>
-                        Résidence privilégiée des rois de France depuis Philippe IV Le Bel en 1285, le Château du Vivier est un joyau de l'architecture royale française. Ce monument historique, qui a accueilli Charles V, François Ier et Louis XIV, vous ouvre aujourd'hui ses portes pour créer vos propres moments d'exception.
-                    </p>
-                    <p>
-                        Le domaine comprend une Sainte Chapelle gothique du XIVe siècle, édifiée par Charles V Le Sage, où se célèbrent cérémonies religieuses et laïques dans un cadre spirituel unique. La Salle Philippe Le Bel accueille jusqu'à 120 convives dans l'intimité raffinée d'un salon royal, tandis que la majestueuse Salle Charles VII peut recevoir jusqu'à 220 invités sur ses deux niveaux.
-                    </p>
-                    <p>
-                        Entouré d'un parc de 7 hectares aux jardins à la française, le château offre un cadre exceptionnel à seulement 35 minutes de Paris. Chaque espace a été pensé pour allier l'authenticité historique au confort moderne, créant ainsi le lieu idéal pour vos événements les plus prestigieux.
-                    </p>
-                    <a href="histoire.html" class="btn-secondary">En savoir plus</a>
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Palais Royal depuis Philippe IV Le Bel</h3>
+                    <p>À 45 km de Paris et 35 minutes de Paris Bercy, le Château du Vivier vous accueille dans un cadre historique unique. Maison de campagne des rois de France de Philippe IV le Bel à Louis XIV, ce monument historique offre une harmonie époustouflante entre vestiges majestueux, romantisme de ses étangs et terrasses fleuries.</p>
+                    <p>Fort de 850 mariages organisés, nous mettons notre savoir-faire à votre disposition dans le respect permanent de vos attentes.</p>
+                    <a href="histoire.html" class="btn">Découvrir notre histoire</a>
                 </div>
-                <div class="content-image animate-on-scroll">
-                    <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-699-6934.jpg" 
-                         alt="Château du Vivier - Vue aérienne">
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/chateau-du-vivier-4.jpg" alt="Vue du Château du Vivier" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section Espaces -->
-    <section class="section bg-light">
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Trois Lieux Magiques pour Vos Réceptions</h2>
-            
-            <!-- Sainte Chapelle -->
-            <div class="content-grid reverse">
-                <div class="content-image animate-on-scroll">
-                    <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-694-7285.jpg" 
-                         alt="La Sainte Chapelle">
-                </div>
-                <div class="content-text animate-on-scroll">
-                    <h3>La Sainte Chapelle du XIVe siècle</h3>
-                    <p>
-                        Un joyau gothique unique pour vos cérémonies religieuses ou laïques. Ses vitraux millénaires et son acoustique parfaite créent une atmosphère spirituelle incomparable. Capacité de 150 personnes.
-                    </p>
-                    <p>
-                        Édifiée par Charles V Le Sage, cette chapelle exceptionnelle témoigne de l'importance royale du château. Ses voûtes élancées et sa lumière divine sublimeront le plus beau jour de votre vie.
-                    </p>
-                    <a href="sainte-chapelle.html" class="btn-secondary">En savoir plus</a>
-                </div>
+            <div class="section-header">
+                <h2>Nos Espaces de Réception</h2>
+                <div class="section-divider"></div>
             </div>
             
-            <!-- Salle Philippe Le Bel -->
-            <div class="content-grid" style="margin-top: 60px;">
-                <div class="content-text animate-on-scroll">
-                    <h3>La Salle Philippe Le Bel</h3>
-                    <p>
-                        L'intimité raffinée d'un salon royal pour vos réceptions. Cette salle historique, aux boiseries d'époque et aux lustres de cristal, accueille jusqu'à 120 convives dans une atmosphère chaleureuse et prestigieuse.
-                    </p>
-                    <p>
-                        Parfaite pour des dîners assis ou des cocktails élégants, elle offre un cadre intimiste tout en conservant la grandeur royale qui caractérise le château.
-                    </p>
-                    <a href="salle-philippe.html" class="btn-secondary">En savoir plus</a>
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-image">
+                        <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-697-7278.jpg" alt="Sainte Chapelle" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">La Sainte Chapelle</h3>
+                        <p class="card-text">Joyau édifié par Charles V, notre Sainte Chapelle accueille vos cérémonies laïques ou religieuses dans un cadre gothique authentique du XIVe siècle.</p>
+                        <a href="sainte-chapelle.html" class="btn">En savoir plus</a>
+                    </div>
                 </div>
-                <div class="content-image animate-on-scroll">
-                    <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-695-3227.jpg" 
-                         alt="Salle Philippe Le Bel">
+                
+                <div class="card fade-in">
+                    <div class="card-image">
+                        <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-694-7285.jpg" alt="Salle Philippe Le Bel" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Salle Philippe Le Bel</h3>
+                        <p class="card-text">180 m² pouvant accueillir 140 convives assis ou 200 en cocktail. Un espace élégant avec vue sur les jardins historiques.</p>
+                        <a href="salles.html#philippe-le-bel" class="btn">En savoir plus</a>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Salle Charles VII -->
-            <div class="content-grid reverse" style="margin-top: 60px;">
-                <div class="content-image animate-on-scroll">
-                    <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-697-7278.jpg" 
-                         alt="Salle Charles VII">
-                </div>
-                <div class="content-text animate-on-scroll">
-                    <h3>La Salle Charles VII</h3>
-                    <p>
-                        Notre plus grande salle de réception sur deux niveaux. Majestueuse et lumineuse, elle peut accueillir jusqu'à 220 invités. Ses grandes fenêtres offrent une vue imprenable sur le parc et ses jardins à la française.
-                    </p>
-                    <p>
-                        Idéale pour les grandes réceptions, mariages somptueux et événements d'entreprise prestigieux, elle allie volumes généreux et décoration raffinée.
-                    </p>
-                    <a href="salle-charles.html" class="btn-secondary">En savoir plus</a>
+                
+                <div class="card fade-in">
+                    <div class="card-image">
+                        <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-696-7286.jpg" alt="Salle Charles VII" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Salle Charles VII</h3>
+                        <p class="card-text">Sur deux niveaux, 460 m² au total pour accueillir jusqu'à 350 convives. L'espace idéal pour vos grandes réceptions.</p>
+                        <a href="salles.html#charles-vii" class="btn">En savoir plus</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,57 +108,209 @@
     <!-- Section Mariages -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Mariages au Château</h2>
+            <div class="section-header">
+                <h2>Mariages de Prestige</h2>
+                <div class="section-divider"></div>
+            </div>
             
-            <div class="content-grid">
-                <div class="content-text animate-on-scroll">
-                    <p>
-                        Depuis 30 ans, nous avons eu l'honneur d'organiser plus de 850 mariages dans ce cadre royal unique. Notre expertise et notre formule clé en main vous garantissent une journée parfaite, orchestrée dans les moindres détails par notre équipe passionnée.
-                    </p>
-                    <p>
-                        De la cérémonie dans notre Sainte Chapelle gothique au vin d'honneur dans les jardins, du dîner gastronomique dans nos salons historiques à la soirée dansante jusqu'au bout de la nuit, chaque moment de votre mariage sera sublimé. Notre formule tout compris inclut la location exclusive du château, la coordination complète, le traiteur gastronomique PRO-G, la décoration florale sur mesure, ainsi que la sonorisation et l'éclairage professionnels.
-                    </p>
-                    <p>
-                        Que vous rêviez d'un mariage intime dans la Salle Philippe Le Bel ou d'une grande réception dans la Salle Charles VII, nous adaptons nos prestations à vos envies pour créer le mariage qui vous ressemble, dans un décor de conte de fées.
-                    </p>
-                    <a href="formule-mariage.html" class="btn-secondary">En savoir plus</a>
+            <div class="content-block reverse">
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/lieu-de-mariage-77.jpg" alt="Mariage au château" loading="lazy">
                 </div>
-                <div class="content-image animate-on-scroll">
-                    <img src="https://www.chateauduvivier.com/images/lieu-evenementiel-77.jpg" 
-                         alt="Mariage au Château">
+                <div class="content-text">
+                    <h3>Votre Mariage de Rêve</h3>
+                    <p>Plus de 850 mariages célébrés depuis 30 ans dans ce cadre d'exception. De la cérémonie dans notre Sainte Chapelle historique jusqu'à la soirée dansante, vivez un moment unique et inoubliable.</p>
+                    <p>Nos formules tout inclus comprennent : la location des espaces sans limite d'heure, le menu gastronomique et les boissons, la décoration florale personnalisée et l'illumination féerique du château toute la nuit.</p>
+                    <a href="mariages.html" class="btn">Découvrir nos formules</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Séminaires -->
-    <section class="section bg-light">
+    <!-- Section Entreprises -->
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Événements d'Entreprise</h2>
+            <div class="section-header">
+                <h2>Séminaires & Événements d'Entreprise</h2>
+                <div class="section-divider"></div>
+            </div>
             
-            <div class="content-grid reverse">
-                <div class="content-image animate-on-scroll">
-                    <img src="https://www.chateauduvivier.com/images/photos-temoignage-mariage-77.jpg" 
-                         alt="Événement d'entreprise">
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Un Cadre Inspirant pour vos Événements</h3>
+                    <p>À seulement 35 minutes de Paris Bercy, le Château du Vivier offre un cadre prestigieux et fonctionnel pour tous vos événements professionnels.</p>
+                    <p>Séminaires, team building, lancements de produits ou soirées de gala : nos espaces modulables s'adaptent à vos besoins avec des capacités allant jusqu'à 350 personnes.</p>
+                    <a href="entreprises.html" class="btn">Organiser votre événement</a>
                 </div>
-                <div class="content-text animate-on-scroll">
-                    <p>
-                        À seulement 35 minutes de Paris Bercy, le Château du Vivier offre un environnement exceptionnel pour vos séminaires, conventions et soirées d'entreprise. Nos espaces modulables peuvent accueillir de 20 à 350 personnes dans un cadre historique inspirant qui marquera les esprits de vos collaborateurs et clients.
-                    </p>
-                    <p>
-                        Nos salles sont équipées de matériel audiovisuel haute définition, wifi très haut débit et mobilier modulable pour s'adapter à toutes vos configurations : réunion, conférence, cocktail ou dîner de gala. Le parc de 7 hectares permet d'organiser des activités team building originales, tandis que notre parking privé de 150 places et la possibilité d'héliport facilitent l'accès de vos invités.
-                    </p>
-                    <p>
-                        Notre formule corporate clé en main comprend l'organisation complète de votre événement : pauses gourmandes, déjeuners gastronomiques, animations sur mesure et coordination dédiée.
-                    </p>
-                    <a href="formule-entreprise.html" class="btn-secondary">En savoir plus</a>
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/chateau-seminaire-seine-et-marne.jpg" alt="Séminaire au château" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-   
+    <!-- Section Galerie -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Découvrez le Château en Images</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-699-6934.jpg" alt="Les jardins" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Les Jardins Historiques</h4>
+                        <p>7 hectares de parc arboré</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://www.chateauduvivier.com/images/lieu-evenementiel-77.jpg" alt="Réception" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Réceptions Élégantes</h4>
+                        <p>Décoration raffinée</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://www.chateauduvivier.com/images/photos-temoignage-mariage-77.jpg" alt="Événement" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Moments Inoubliables</h4>
+                        <p>Créez vos souvenirs</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="galerie.html" class="btn">Voir toute la galerie</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ils Nous Font Confiance</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
+                            "Non seulement l'endroit est magnifique, mais en plus les propriétaires Anne et Philippe sont des gens adorables ! La cérémonie laïque dans les ruines est exceptionnelle, le vin d'honneur sensationnel. Cet endroit est à réserver les yeux fermés !"
+                        </p>
+                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Mathieu & Sophie</h4>
+                        <p style="font-size: 0.9rem;">Mariage - Juillet 2023</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
+                            "Un cadre exceptionnel pour notre séminaire annuel. Le château a sublimé notre événement et impressionné tous nos collaborateurs. L'équipe est aux petits soins et très professionnelle."
+                        </p>
+                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Direction Générale</h4>
+                        <p style="font-size: 0.9rem;">Entreprise CAC 40 - Septembre 2023</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
+                            "Le lieu parfait pour notre lancement de produit. L'histoire du château a donné une dimension unique à notre événement. Nos clients ont été conquis par le cadre exceptionnel."
+                        </p>
+                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Marie D.</h4>
+                        <p style="font-size: 0.9rem;">Événement corporate - Mai 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visitez le Château du Vivier</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-text" style="text-align: center;">
+                    <h3>Planifiez Votre Visite</h3>
+                    <p>Nous serions ravis de vous faire découvrir le Château du Vivier et de discuter de votre projet. Visites sur rendez-vous uniquement.</p>
+                    
+                    <div style="margin: 2rem 0;">
+                        <p><strong>Gaëtan Delbarre</strong><br>
+                        <em>Directeur du Château</em></p>
+                        <p>📞 07 86 85 21 37<br>
+                        📧 visitechateauduvivier@gmail.com</p>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn">Demander un rendez-vous</a>
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-outline" style="background: white; color: var(--primary-color); border-color: var(--primary-color);">Voir sur la carte</a>
+                    </div>
+                </div>
+                
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/chateau-soiree-entreprise-seine-et-marne.jpg" alt="Vue aérienne du château" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer sera inséré ici par menu.js -->
+
     <!-- Scripts -->
     <script src="menu.js"></script>
+    <script>
+        // Animations au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Lightbox pour la galerie
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = '<span class="lightbox-close">&times;</span><img src="" alt="">';
+        document.body.appendChild(lightbox);
+        
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+            });
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target === lightboxClose) {
+                lightbox.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
