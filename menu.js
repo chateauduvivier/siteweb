@@ -4,8 +4,8 @@ function createNavigation() {
     const nav = `
         <nav class="navigation" id="navigation">
             <div class="nav-wrapper">
-                <!-- Logo seul sur la première ligne -->
                 <div class="nav-top-line">
+                    <!-- Logo et titre sur la même ligne à gauche -->
                     <div class="nav-brand">
                         <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
@@ -13,10 +13,8 @@ function createNavigation() {
                         </svg>
                         <a href="index.html" class="nav-logo">Château du Vivier</a>
                     </div>
-                </div>
-                
-                <!-- Menu sur la deuxième ligne -->
-                <div class="nav-bottom-line">
+                    
+                    <!-- Menu à droite -->
                     <ul class="nav-menu" id="navMenu">
                         <li class="has-dropdown">
                             <a href="histoire.html">LE CHÂTEAU</a>
@@ -24,6 +22,7 @@ function createNavigation() {
                                 <li><a href="histoire.html">L'Histoire du Château</a></li>
                                 <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
                                 <li><a href="salles.html">Nos Espaces</a></li>
+                                <li><a href="parc.html">Le Parc</a></li>
                             </ul>
                         </li>
                         
@@ -49,14 +48,14 @@ function createNavigation() {
                         <li><a href="temoignages.html">TÉMOIGNAGES</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
                     </ul>
+                    
+                    <!-- Menu Mobile Toggle -->
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
-                
-                <!-- Menu Mobile Toggle -->
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </nav>
     `;
@@ -235,6 +234,62 @@ function createFooter() {
     document.body.insertAdjacentHTML('beforeend', footer);
 }
 
+// Fonctions utilitaires supplémentaires
+window.ChateauVivier = {
+    // Smooth scroll
+    initSmoothScroll: function() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    },
+    
+    // Lazy loading des images
+    initLazyLoading: function() {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    },
+    
+    // Animation au scroll
+    initScrollAnimations: function() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
+        });
+    }
+};
+
 // Fonction d'initialisation
 function initializeLayout() {
     if (document.readyState === 'loading') {
@@ -250,11 +305,3 @@ function initializeLayout() {
 
 // Initialiser
 initializeLayout();
-
-// Exports
-window.ChateauVivier = {
-    createNavigation,
-    createFooter,
-    initDropdowns,
-    markActivePage
-};
