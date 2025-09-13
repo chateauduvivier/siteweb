@@ -24,11 +24,21 @@ function createNavigation() {
                             <li><a href="parc.html">Le Parc</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-dropdown">
                         <a href="mariages.html" class="nav-link">Mariages</a>
+                        <ul class="dropdown">
+                            <li><a href="mariages.html#ceremonies">Cérémonies</a></li>
+                            <li><a href="mariages.html#formule">Package Clé en Main</a></li>
+                            <li><a href="mariages.html#menu">Notre Menu</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item has-dropdown">
                         <a href="entreprises.html" class="nav-link">Entreprises</a>
+                        <ul class="dropdown">
+                            <li><a href="entreprises.html#salles">Nos Salles</a></li>
+                            <li><a href="entreprises.html#teambuilding">Team Building</a></li>
+                            <li><a href="entreprises.html#restauration">Restauration</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="galerie.html" class="nav-link">Galerie</a>
