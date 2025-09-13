@@ -1,291 +1,136 @@
-// menu.js - Navigation principale du Château du Vivier
-
-function createNavigation() {
-    const nav = `
-        <nav class="navigation" id="navigation">
-            <div class="nav-wrapper">
-                <div class="nav-top-line">
-                    <!-- Logo et titre sur la même ligne à gauche -->
-                    <div class="nav-brand">
-                        <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
-                            <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
-                        </svg>
-                        <a href="index.html" class="nav-logo">Château du Vivier</a>
-                    </div>
-                    
-                    <!-- Menu à droite -->
-                    <ul class="nav-menu" id="navMenu">
-                        <li class="has-dropdown">
-                            <a href="histoire.html">LE CHÂTEAU</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="histoire.html">L'Histoire du Château</a></li>
-                                <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
-                                <li><a href="salles.html">Nos Espaces</a></li>
-                                <li><a href="parc.html">Le Parc</a></li>
-                            </ul>
-                        </li>
-                        
-                        <li class="has-dropdown">
-                            <a href="formule-mariage.html">MARIAGES</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="ceremonie.html">Cérémonies</a></li>
-                                <li><a href="formule-mariage.html">Package Clé en Main</a></li>
-                                <li><a href="menu-mariage.html">Notre Menu</a></li>
-                            </ul>
-                        </li>
-                        
-                        <li class="has-dropdown">
-                            <a href="formule-entreprise.html">SÉMINAIRES</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="formule-entreprise.html">Formules Entreprise</a></li>
-                                <li><a href="menu-seminaire.html">Notre Menu</a></li>
-                            </ul>
-                        </li>
-                        
-                        <li><a href="portfolio.html">PORTFOLIO</a></li>
-                        <li><a href="partenaires.html">PARTENAIRES</a></li>
-                        <li><a href="temoignages.html">TÉMOIGNAGES</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                    </ul>
-                    
-                    <!-- Menu Mobile Toggle -->
-                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    `;
+// Menu JavaScript - Château du Vivier
+document.addEventListener('DOMContentLoaded', function() {
     
-    // Insérer la navigation au début du body
-    document.body.insertAdjacentHTML('afterbegin', nav);
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const body = document.body;
     
-    // Activer le menu mobile
-    initMobileMenu();
-    
-    // Gérer le scroll pour l'effet de navigation
-    handleNavigationScroll();
-    
-    // Marquer la page active
-    markActivePage();
-    
-    // Gérer les dropdowns au survol
-    initDropdowns();
-}
-
-function initDropdowns() {
-    const dropdowns = document.querySelectorAll('.has-dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        let timeoutId;
-        let isOverDropdown = false;
-        let isOverMenu = false;
-        
-        // Afficher au survol sur desktop
-        dropdown.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 768) {
-                clearTimeout(timeoutId);
-                isOverDropdown = true;
-                this.classList.add('active');
-            }
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            body.classList.toggle('menu-open');
         });
         
-        // Marquer quand on quitte le dropdown principal
-        dropdown.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 768) {
-                isOverDropdown = false;
-                // Vérifier après un court délai si on n'est ni sur le dropdown ni sur le menu
-                timeoutId = setTimeout(() => {
-                    if (!isOverDropdown && !isOverMenu) {
-                        this.classList.remove('active');
-                    }
-                }, 100); // Délai court pour permettre de passer au sous-menu
-            }
-        });
-        
-        // Garder le menu ouvert quand on survole le sous-menu
-        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-        if (dropdownMenu) {
-            dropdownMenu.addEventListener('mouseenter', function() {
-                if (window.innerWidth > 768) {
-                    clearTimeout(timeoutId);
-                    isOverMenu = true;
-                    dropdown.classList.add('active');
-                }
-            });
-            
-            dropdownMenu.addEventListener('mouseleave', function() {
-                if (window.innerWidth > 768) {
-                    isOverMenu = false;
-                    // Vérifier après un délai si on n'est toujours pas revenu
-                    timeoutId = setTimeout(() => {
-                        if (!isOverDropdown && !isOverMenu) {
-                            dropdown.classList.remove('active');
-                        }
-                    }, 300);
-                }
-            });
-        }
-        
-        // Pour mobile - toggle au clic
-        const mainLink = dropdown.querySelector('> a');
-        if (mainLink) {
-            mainLink.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768 && dropdown.querySelector('.dropdown-menu')) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                    
-                    // Fermer les autres dropdowns
-                    dropdowns.forEach(other => {
-                        if (other !== dropdown) {
-                            other.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        }
-    });
-}
-
-function initMobileMenu() {
-    const toggle = document.getElementById('mobileMenuToggle');
-    const menu = document.getElementById('navMenu');
-    
-    if (toggle && menu) {
-        toggle.addEventListener('click', function() {
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-        
-        // Fermer le menu au clic sur un lien
-        const menuLinks = menu.querySelectorAll('a:not(.has-dropdown > a)');
-        menuLinks.forEach(link => {
+        // Close menu when clicking on a link (mobile)
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                menu.classList.remove('active');
-                toggle.classList.remove('active');
-                document.body.classList.remove('menu-open');
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
             });
         });
     }
-}
-
-function handleNavigationScroll() {
-    const nav = document.getElementById('navigation');
-    if (!nav) return;
     
+    // Handle dropdown menus on mobile
+    const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+    
+    dropdownItems.forEach(item => {
+        const link = item.querySelector('.nav-link');
+        
+        if (link && window.innerWidth <= 768) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close other dropdowns
+                dropdownItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                item.classList.toggle('active');
+            });
+        }
+    });
+    
+    // Scroll Effects
+    const navigation = document.getElementById('navigation');
     let lastScroll = 0;
     
     window.addEventListener('scroll', function() {
         const currentScroll = window.pageYOffset;
         
-        // Ajouter la classe scrolled après 50px de scroll
+        // Add shadow on scroll
         if (currentScroll > 50) {
-            nav.classList.add('scrolled');
+            navigation.classList.add('scrolled');
         } else {
-            nav.classList.remove('scrolled');
+            navigation.classList.remove('scrolled');
         }
         
-        // Hide/show sur scroll mobile uniquement
+        // Hide/show on scroll (mobile only)
         if (window.innerWidth < 768) {
             if (currentScroll > lastScroll && currentScroll > 200) {
-                nav.classList.add('hidden');
+                navigation.classList.add('hidden');
             } else {
-                nav.classList.remove('hidden');
+                navigation.classList.remove('hidden');
             }
         }
         
         lastScroll = currentScroll;
     });
-}
-
-function markActivePage() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-menu a');
     
-    navLinks.forEach(link => {
+    // Mark Active Page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const menuLinks = document.querySelectorAll('.nav-menu a');
+    
+    menuLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage) {
             link.classList.add('active');
-            const parentLi = link.closest('.has-dropdown');
-            if (parentLi) {
-                parentLi.querySelector('> a').classList.add('active-parent');
+            const parentItem = link.closest('.nav-item');
+            if (parentItem) {
+                parentItem.classList.add('active-page');
             }
         }
     });
-}
-
-// Créer le footer commun
-function createFooter() {
-    const footer = `
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">Château du Vivier</h3>
-                    <p>Palais Royal depuis Philippe IV Le Bel</p>
-                    <p>Monument Historique</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Gaëtan Delbarre</p>
-                    <p>📧 visitechateauduvivier@gmail.com</p>
-                    <p>📱 07 86 85 21 37</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Localisation</h4>
-                    <p>Seine-et-Marne (77)</p>
-                    <p>45 km de Paris</p>
-                    <p>35 min de Paris Bercy</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Suivez-nous</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Château du Vivier - Tous droits réservés | 
-                   <a href="mentions-legales.html">Mentions légales</a> | 
-                   <a href="cgv.html">CGV</a>
-                </p>
-            </div>
-        </footer>
-    `;
     
-    document.body.insertAdjacentHTML('beforeend', footer);
-}
-
-// Fonctions utilitaires supplémentaires
-window.ChateauVivier = {
-    // Smooth scroll
-    initSmoothScroll: function() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    // Smooth Scroll for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
-    },
+    });
     
-    // Lazy loading des images
-    initLazyLoading: function() {
-        const images = document.querySelectorAll('img[data-src]');
+    // Form Handling
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Here you would normally send the data to a server
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            alert('Merci pour votre message. Nous vous recontacterons dans les plus brefs délais.');
+            
+            // Reset form
+            this.reset();
+        });
+    }
+    
+    // Lazy Loading Images
+    const images = document.querySelectorAll('img[data-src]');
+    if (images.length > 0) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -298,41 +143,110 @@ window.ChateauVivier = {
         });
         
         images.forEach(img => imageObserver.observe(img));
-    },
+    }
     
-    // Animation au scroll
-    initScrollAnimations: function() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
+    // Animation on Scroll
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    if (animateElements.length > 0) {
+        const animationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('animated');
                 }
             });
-        }, observerOptions);
-        
-        document.querySelectorAll('.animate-on-scroll').forEach(element => {
-            observer.observe(element);
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
+        
+        animateElements.forEach(element => {
+            animationObserver.observe(element);
+        });
+    }
+    
+    // Resize Handler
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // Reset mobile menu on resize to desktop
+            if (window.innerWidth > 768) {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                body.classList.remove('menu-open');
+                
+                // Reset dropdown states
+                dropdownItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        }, 250);
+    });
+    
+    // Add CSS for scrolled state
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .navigation.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navigation.hidden {
+            transform: translateY(-100%);
+        }
+        
+        body.menu-open {
+            overflow: hidden;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        .nav-link.active {
+            color: #C8A46A;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+// Export utility functions
+window.ChateauVivier = {
+    // Scroll to top
+    scrollToTop: function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    },
+    
+    // Open popup
+    openPopup: function(url, width = 600, height = 400) {
+        const left = (window.innerWidth - width) / 2;
+        const top = (window.innerHeight - height) / 2;
+        window.open(url, 'popup', `width=${width},height=${height},left=${left},top=${top}`);
+    },
+    
+    // Format phone number
+    formatPhone: function(phone) {
+        return phone.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
     }
 };
-
-// Fonction d'initialisation
-function initializeLayout() {
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            createNavigation();
-            createFooter();
-        });
-    } else {
-        createNavigation();
-        createFooter();
-    }
-}
-
-// Initialiser
-initializeLayout();
