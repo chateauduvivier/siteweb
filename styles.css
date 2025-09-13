@@ -1,630 +1,216 @@
-/* styles.css - Château du Vivier - Version Simplifiée */
-
-/* Reset et Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Crimson Text', serif;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
-
-p {
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-/* Navigation */
-.navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    padding: 15px 0;
-}
-
-.nav-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.nav-top-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.castle-icon {
-    width: 28px;
-    height: 28px;
-    fill: white;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-}
-
-.nav-logo {
-    font-family: 'Crimson Text', serif;
-    font-size: 24px;
-    font-weight: 400;
-    font-style: italic;
-    color: white;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu > li {
-    position: relative;
-}
-
-.nav-menu > li > a {
-    font-family: 'Lato', sans-serif;
-    color: white;
-    font-size: 13px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 8px 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    display: inline-block;
-}
-
-.nav-menu > li > a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: white;
-    transition: width 0.3s ease;
-}
-
-.nav-menu > li > a:hover::after,
-.nav-menu > li > a.active::after {
-    width: 100%;
-}
-
-/* Sous-menus */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(255, 255, 255, 0.95);
-    min-width: 260px;
-    padding: 10px 0;
-    list-style: none;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    border-radius: 5px;
-}
-
-.nav-menu > li:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-menu li {
-    display: block;
-}
-
-.dropdown-menu li a {
-    font-family: 'Lato', sans-serif;
-    color: #333;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.dropdown-menu li a:hover {
-    background: rgba(139, 115, 85, 0.1);
-    padding-left: 25px;
-}
-
-/* Navigation scrollée */
-.navigation.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    padding: 12px 0;
-}
-
-.navigation.scrolled .nav-logo {
-    color: #333;
-    text-shadow: none;
-}
-
-.navigation.scrolled .castle-icon {
-    fill: #8B7355;
-    filter: none;
-}
-
-.navigation.scrolled .nav-menu > li > a {
-    color: #333;
-    text-shadow: none;
-}
-
-.navigation.scrolled .nav-menu > li > a::after {
-    background: #8B7355;
-}
-
-/* Mobile menu toggle */
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.mobile-menu-toggle span {
-    width: 25px;
-    height: 2px;
-    background: white;
-    margin: 3px 0;
-    transition: all 0.3s ease;
-}
-
-.navigation.scrolled .mobile-menu-toggle span {
-    background: #333;
-}
-
-.mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Hero Section */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.video-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%) scale(1.2);
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
-    z-index: -1;
-}
-
-.hero-content {
-    text-align: center;
-    color: white;
-    z-index: 1;
-    padding: 0 20px;
-}
-
-.hero-content h1 {
-    font-size: 4.5rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.hero-content p {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.8rem;
-    font-style: italic;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.btn-hero {
-    display: inline-block;
-    padding: 12px 35px;
-    background: rgba(139, 115, 85, 0.9);
-    color: white;
-    border-radius: 4px;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.btn-hero:hover {
-    background: rgba(139, 115, 85, 1);
-    transform: translateY(-2px);
-}
-
-.btn-hero.btn-secondary {
-    background: transparent;
-    border: 2px solid white;
-}
-
-.btn-hero.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Sections */
-.section {
-    padding: 50px 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.section-title {
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: #8B7355;
-    margin: 20px auto;
-}
-
-/* Content Grid */
-.content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.content-grid.reverse {
-    direction: rtl;
-}
-
-.content-grid.reverse > * {
-    direction: ltr;
-}
-
-.content-text {
-    font-size: 1.05rem;
-    color: #555;
-}
-
-.content-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.btn-inline {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 25px;
-    background: #8B7355;
-    color: white;
-    border-radius: 30px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.btn-inline:hover {
-    background: #6d5a44;
-    transform: translateY(-2px);
-}
-
-/* Lead text */
-.lead {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* Button */
-.btn {
-    display: inline-block;
-    padding: 12px 35px;
-    background: #8B7355;
-    color: white;
-    border-radius: 4px;
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: #6d5a44;
-    transform: translateY(-2px);
-}
-
-/* Contact Info */
-.contact-info {
-    margin-top: 30px;
-}
-
-.contact-info p {
-    margin: 10px 0;
-    font-size: 1.05rem;
-}
-
-/* Backgrounds */
-.bg-light {
-    background: #f8f8f8;
-}
-
-/* Footer */
-.footer {
-    background: #2c2c2c;
-    color: white;
-    padding: 40px 0 20px;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #8B7355;
-}
-
-.footer-section p {
-    margin-bottom: 8px;
-    color: #ccc;
-    font-size: 14px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.social-links a {
-    font-size: 20px;
-    transition: transform 0.3s ease;
-}
-
-.social-links a:hover {
-    transform: translateY(-3px);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid #444;
-    margin-top: 30px;
-    color: #999;
-    font-size: 13px;
-}
-
-.footer-bottom a {
-    color: #8B7355;
-    margin: 0 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .navigation {
-        background: white;
-        padding: 12px 0;
-    }
+// menu.js - Navigation principale du Château du Vivier - Version Simplifiée
+
+function createNavigation() {
+    const nav = `
+        <nav class="navigation" id="navigation">
+            <div class="nav-wrapper">
+                <div class="nav-top-line">
+                    <!-- Logo et titre alignés à gauche -->
+                    <div class="nav-brand">
+                        <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
+                            <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
+                        </svg>
+                        <a href="index.html" class="nav-logo">Château du Vivier</a>
+                    </div>
+                    
+                    <!-- Menu aligné à droite -->
+                    <ul class="nav-menu" id="navMenu">
+                        <li class="has-dropdown">
+                            <a href="histoire.html">LE CHÂTEAU</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="histoire.html">Notre Histoire</a></li>
+                                <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
+                                <li><a href="salles.html">Nos Espaces</a></li>
+                                <li><a href="parc.html">Le Parc</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="has-dropdown">
+                            <a href="formule-mariage.html">MARIAGES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ceremonie.html">Cérémonies</a></li>
+                                <li><a href="formule-mariage.html">Formules Mariage</a></li>
+                                <li><a href="menu-mariage.html">Menu Gastronomique</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="has-dropdown">
+                            <a href="formule-entreprise.html">ENTREPRISES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="formule-entreprise.html">Séminaires</a></li>
+                                <li><a href="menu-seminaire.html">Offre Traiteur</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="portfolio.html">GALERIE</a></li>
+                        <li><a href="partenaires.html">PARTENAIRES</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                    
+                    <!-- Menu Mobile Toggle -->
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    `;
     
-    .castle-icon {
-        fill: #8B7355;
-        filter: none;
-    }
+    // Insérer la navigation au début du body
+    document.body.insertAdjacentHTML('afterbegin', nav);
     
-    .nav-logo {
-        color: #333;
-        font-size: 20px;
-        text-shadow: none;
-    }
+    // Activer le menu mobile
+    initMobileMenu();
     
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 80px 30px;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
-        overflow-y: auto;
-        gap: 15px;
-    }
+    // Gérer le scroll pour l'effet de navigation
+    handleNavigationScroll();
     
-    .nav-menu.active {
-        right: 0;
-    }
+    // Marquer la page active
+    markActivePage();
     
-    .nav-menu > li > a {
-        color: #333 !important;
-        font-size: 14px;
-        text-shadow: none;
-    }
+    // Gérer les dropdowns mobiles
+    initMobileDropdowns();
+}
+
+function initMobileMenu() {
+    const toggle = document.getElementById('mobileMenuToggle');
+    const menu = document.getElementById('navMenu');
     
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        width: 100%;
-        background: transparent;
-        box-shadow: none;
-        padding-left: 20px;
-        margin-top: 10px;
-        display: none;
-    }
-    
-    .has-dropdown.active .dropdown-menu {
-        display: block;
-    }
-    
-    .dropdown-menu li a {
-        color: #666 !important;
-        font-size: 13px;
-    }
-    
-    .hero-section {
-        margin-top: 60px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.3rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .section {
-        padding: 35px 0;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .content-grid,
-    .content-grid.reverse {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        direction: ltr;
-    }
-    
-    .content-image img {
-        height: 300px;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+    if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Fermer le menu au clic sur un lien simple
+        const simpleLinks = menu.querySelectorAll('a:not(.has-dropdown > a)');
+        simpleLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
     }
 }
 
-/* Animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
+function initMobileDropdowns() {
+    if (window.innerWidth <= 768) {
+        const dropdowns = document.querySelectorAll('.has-dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const mainLink = dropdown.querySelector('> a');
+            if (mainLink) {
+                mainLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    
+                    // Fermer les autres dropdowns
+                    dropdowns.forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('active');
+                        }
+                    });
+                });
+            }
+        });
+    }
 }
 
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
+function handleNavigationScroll() {
+    const nav = document.getElementById('navigation');
+    if (!nav) return;
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
 }
 
-/* Text center utility */
-.text-center {
-    text-align: center;
+function markActivePage() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage) {
+            link.classList.add('active');
+            const parentLi = link.closest('.has-dropdown');
+            if (parentLi) {
+                parentLi.querySelector('> a').classList.add('active-parent');
+            }
+        }
+    });
 }
+
+// Créer le footer
+function createFooter() {
+    const footer = `
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Château du Vivier</h3>
+                    <p>Palais Royal depuis 1285</p>
+                    <p>Monument Historique</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Gaëtan Delbarre</p>
+                    <p>📧 visitechateauduvivier@gmail.com</p>
+                    <p>📱 07 86 85 21 37</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Localisation</h4>
+                    <p>Seine-et-Marne (77)</p>
+                    <p>45 km de Paris</p>
+                    <p>35 min de Paris Bercy</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Château du Vivier - Tous droits réservés | 
+                   <a href="mentions-legales.html">Mentions légales</a> | 
+                   <a href="cgv.html">CGV</a>
+                </p>
+            </div>
+        </footer>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', footer);
+}
+
+// Fonction d'initialisation
+function initializeLayout() {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            createNavigation();
+            createFooter();
+        });
+    } else {
+        createNavigation();
+        createFooter();
+    }
+}
+
+// Initialiser
+initializeLayout();
