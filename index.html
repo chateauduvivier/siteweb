@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Château du Vivier - Palais Royal depuis Philippe IV Le Bel. Location de château pour mariages et événements d'entreprise en Seine-et-Marne.">
-    <meta name="keywords" content="château mariage, location château, événement entreprise, Seine-et-Marne, Fontenay-Trésigny">
-    
-    <title>Château du Vivier - Location Château Mariage & Événements</title>
+    <meta name="description" content="Château du Vivier - Palais Royal depuis Philippe IV Le Bel. Location pour mariages et événements d'entreprise en Seine-et-Marne, à 45km de Paris.">
+    <title>Château du Vivier - Location Château Mariage & Événements Seine-et-Marne</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Le menu sera automatiquement inséré ici par menu.js -->
+    <!-- Navigation sera insérée ici par menu.js -->
 
-    <!-- Hero Section avec Vidéo YouTube en plein écran -->
-    <section class="hero-section">
-        <div class="video-wrapper">
+    <!-- Hero Section avec Vidéo -->
+    <section class="hero">
+        <div class="hero-video">
             <iframe 
                 src="https://www.youtube.com/embed/l6XMvb_TKRY?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=l6XMvb_TKRY"
                 frameborder="0"
@@ -31,11 +29,11 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="animate-on-scroll">Château du Vivier</h1>
-            <p class="animate-on-scroll">Un Château... Votre réception... Notre passion</p>
-            <div class="hero-buttons animate-on-scroll">
-                <a href="histoire.html" class="btn-hero btn-outline">Découvrir l'histoire</a>
-                <a href="contact.html" class="btn-hero btn-outline">Planifier une visite</a>
+            <h1 class="hero-title" style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: clamp(4rem, 10vw, 8rem); letter-spacing: 4px;">Château du Vivier</h1>
+            <p class="hero-subtitle" style="font-size: clamp(2rem, 5vw, 3rem); color: white; letter-spacing: 2px;">Un Château... Votre réception... Notre passion</p>
+            <div class="hero-buttons">
+                <a href="histoire.html" class="btn btn-outline">Découvrir l'histoire</a>
+                <a href="contact.html" class="btn btn-outline">Planifier une visite</a>
             </div>
         </div>
     </section>
@@ -43,50 +41,64 @@
     <!-- Section Présentation -->
     <section class="section">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Un Lieu d'Exception</h2>
+            <div class="section-header">
+                <h2>Un Lieu d'Exception en Seine-et-Marne</h2>
                 <div class="section-divider"></div>
             </div>
-            <p class="lead text-center animate-on-scroll">
-                Le Château du Vivier, résidence royale depuis le XIVe siècle, vous ouvre ses portes 
-                pour vos événements les plus prestigieux. Un cadre historique unique alliant 
-                l'authenticité médiévale au confort moderne.
-            </p>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Palais Royal depuis Philippe IV Le Bel</h3>
+                    <p>À 45 km de Paris et 35 minutes de Paris Bercy, le Château du Vivier vous accueille dans un cadre historique unique. Maison de campagne des rois de France de Philippe IV le Bel à Louis XIV, ce monument historique offre une harmonie époustouflante entre vestiges majestueux, romantisme de ses étangs et terrasses fleuries.</p>
+                    <p>Fort de 850 mariages organisés, nous mettons notre savoir-faire à votre disposition dans le respect permanent de vos attentes.</p>
+                    <a href="histoire.html" class="btn">Découvrir notre histoire</a>
+                </div>
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/chateau-du-vivier-4.jpg" alt="Vue du Château du Vivier" loading="lazy">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Section Espaces -->
-    <section class="section bg-light">
+    <section class="section section-alt">
         <div class="container">
-            <div class="section-header animate-on-scroll">
+            <div class="section-header">
                 <h2>Nos Espaces de Réception</h2>
                 <div class="section-divider"></div>
             </div>
-            <div class="grid">
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" alt="Sainte Chapelle" loading="lazy">
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-image">
+                        <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-697-7278.jpg" alt="Sainte Chapelle" loading="lazy">
+                    </div>
                     <div class="card-content">
-                        <h3>La Sainte Chapelle</h3>
-                        <p>Joyau gothique du XIVe siècle édifié par Charles V pour vos cérémonies d'exception</p>
-                        <a href="sainte-chapelle.html" class="btn">Découvrir</a>
+                        <h3 class="card-title">La Sainte Chapelle</h3>
+                        <p class="card-text">Joyau édifié par Charles V, notre Sainte Chapelle accueille vos cérémonies laïques ou religieuses dans un cadre gothique authentique du XIVe siècle.</p>
+                        <a href="sainte-chapelle.html" class="btn">En savoir plus</a>
                     </div>
                 </div>
                 
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600" alt="Salle Philippe Le Bel" loading="lazy">
+                <div class="card fade-in">
+                    <div class="card-image">
+                        <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-694-7285.jpg" alt="Salle Philippe Le Bel" loading="lazy">
+                    </div>
                     <div class="card-content">
-                        <h3>Salle Philippe Le Bel</h3>
-                        <p>120 couverts dans un cadre royal authentique avec vue sur les jardins</p>
-                        <a href="salle-philippe.html" class="btn">Découvrir</a>
+                        <h3 class="card-title">Salle Philippe Le Bel</h3>
+                        <p class="card-text">180 m² pouvant accueillir 140 convives assis ou 200 en cocktail. Un espace élégant avec vue sur les jardins historiques.</p>
+                        <a href="salles.html#philippe-le-bel" class="btn">En savoir plus</a>
                     </div>
                 </div>
                 
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Salle Charles VII" loading="lazy">
+                <div class="card fade-in">
+                    <div class="card-image">
+                        <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-696-7286.jpg" alt="Salle Charles VII" loading="lazy">
+                    </div>
                     <div class="card-content">
-                        <h3>Salle Charles VII</h3>
-                        <p>220 couverts pour vos grandes réceptions dans une atmosphère majestueuse</p>
-                        <a href="salle-charles.html" class="btn">Découvrir</a>
+                        <h3 class="card-title">Salle Charles VII</h3>
+                        <p class="card-text">Sur deux niveaux, 460 m² au total pour accueillir jusqu'à 350 convives. L'espace idéal pour vos grandes réceptions.</p>
+                        <a href="salles.html#charles-vii" class="btn">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -96,151 +108,125 @@
     <!-- Section Mariages -->
     <section class="section">
         <div class="container">
-            <div class="section-header animate-on-scroll">
+            <div class="section-header">
                 <h2>Mariages de Prestige</h2>
                 <div class="section-divider"></div>
             </div>
-            <p class="lead text-center animate-on-scroll">
-                Plus de 850 mariages célébrés depuis 30 ans dans ce cadre d'exception
-            </p>
-            <div class="grid">
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600" alt="Cérémonie" loading="lazy">
-                    <div class="card-content">
-                        <h3>Cérémonies</h3>
-                        <p>Religieuses ou laïques dans notre Sainte Chapelle historique</p>
-                    </div>
+            
+            <div class="content-block reverse">
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/lieu-de-mariage-77.jpg" alt="Mariage au château" loading="lazy">
                 </div>
-                
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600" alt="Package" loading="lazy">
-                    <div class="card-content">
-                        <h3>Package Clé en Main</h3>
-                        <p>Formules complètes pour un mariage sans stress avec coordination dédiée</p>
-                    </div>
+                <div class="content-text">
+                    <h3>Votre Mariage de Rêve</h3>
+                    <p>Plus de 850 mariages célébrés depuis 30 ans dans ce cadre d'exception. De la cérémonie dans notre Sainte Chapelle historique jusqu'à la soirée dansante, vivez un moment unique et inoubliable.</p>
+                    <p>Nos formules tout inclus comprennent : la location des espaces sans limite d'heure, le menu gastronomique et les boissons, la décoration florale personnalisée et l'illumination féerique du château toute la nuit.</p>
+                    <a href="mariages.html" class="btn">Découvrir nos formules</a>
                 </div>
-                
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Menu" loading="lazy">
-                    <div class="card-content">
-                        <h3>Notre Menu</h3>
-                        <p>Gastronomie raffinée par nos chefs étoilés et traiteurs partenaires</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
-                <a href="formule-mariage.html" class="btn">Découvrir nos formules mariages</a>
             </div>
         </div>
     </section>
 
-    <!-- Section Séminaires -->
-    <section class="section bg-elegant">
+    <!-- Section Entreprises -->
+    <section class="section section-alt">
         <div class="container">
-            <div class="section-header animate-on-scroll">
+            <div class="section-header">
                 <h2>Séminaires & Événements d'Entreprise</h2>
                 <div class="section-divider"></div>
             </div>
-            <p class="lead text-center animate-on-scroll">
-                Un cadre prestigieux pour vos réunions, séminaires et soirées d'entreprise. 
-                Équipements modernes dans un environnement historique unique.
-            </p>
-            <div class="grid" style="margin-top: 50px;">
-                <div class="card animate-on-scroll">
-                    <div class="card-content">
-                        <h3>Réunions</h3>
-                        <p>Salles équipées pour 20 à 300 personnes avec matériel audiovisuel haute définition</p>
-                    </div>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Un Cadre Inspirant pour vos Événements</h3>
+                    <p>À seulement 35 minutes de Paris Bercy, le Château du Vivier offre un cadre prestigieux et fonctionnel pour tous vos événements professionnels.</p>
+                    <p>Séminaires, team building, lancements de produits ou soirées de gala : nos espaces modulables s'adaptent à vos besoins avec des capacités allant jusqu'à 350 personnes.</p>
+                    <a href="entreprises.html" class="btn">Organiser votre événement</a>
                 </div>
-                
-                <div class="card animate-on-scroll">
-                    <div class="card-content">
-                        <h3>Team Building</h3>
-                        <p>Activités fédératrices dans notre parc de 25 hectares et chasses au trésor historiques</p>
-                    </div>
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/chateau-seminaire-seine-et-marne.jpg" alt="Séminaire au château" loading="lazy">
                 </div>
-                
-                <div class="card animate-on-scroll">
-                    <div class="card-content">
-                        <h3>Soirées de Gala</h3>
-                        <p>Réceptions prestigieuses jusqu'à 300 convives avec service traiteur haut de gamme</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
-                <a href="formule-entreprise.html" class="btn">Nos formules entreprises</a>
             </div>
         </div>
     </section>
 
-    <!-- Section Portfolio -->
+    <!-- Section Galerie -->
     <section class="section">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Portfolio</h2>
+            <div class="section-header">
+                <h2>Découvrez le Château en Images</h2>
                 <div class="section-divider"></div>
             </div>
-            <p class="lead text-center animate-on-scroll">
-                Découvrez en images l'élégance et la majesté du Château du Vivier à travers 
-                les événements que nous avons eu l'honneur d'accueillir.
-            </p>
-            <div class="grid" style="margin-top: 50px;">
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" alt="Mariage au château" loading="lazy">
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://www.omline-webadmin.com/chateauduvivier.com/photos/photo-699-6934.jpg" alt="Les jardins" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Les Jardins Historiques</h4>
+                        <p>7 hectares de parc arboré</p>
+                    </div>
                 </div>
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600" alt="Réception dans la grande salle" loading="lazy">
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://www.chateauduvivier.com/images/lieu-evenementiel-77.jpg" alt="Réception" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Réceptions Élégantes</h4>
+                        <p>Décoration raffinée</p>
+                    </div>
                 </div>
-                <div class="card animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Événement d'entreprise" loading="lazy">
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://www.chateauduvivier.com/images/photos-temoignage-mariage-77.jpg" alt="Événement" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Moments Inoubliables</h4>
+                        <p>Créez vos souvenirs</p>
+                    </div>
                 </div>
             </div>
-            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
-                <a href="portfolio.html" class="btn">Voir tout le portfolio</a>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="galerie.html" class="btn">Voir toute la galerie</a>
             </div>
         </div>
     </section>
 
     <!-- Section Témoignages -->
-    <section class="section bg-light">
+    <section class="section section-alt">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Témoignages</h2>
+            <div class="section-header">
+                <h2>Ils Nous Font Confiance</h2>
                 <div class="section-divider"></div>
             </div>
-            <div class="grid">
-                <div class="card animate-on-scroll">
+            
+            <div class="card-grid">
+                <div class="card fade-in">
                     <div class="card-content">
-                        <p style="font-style: italic; margin-bottom: 20px;">
-                            "Un cadre exceptionnel pour le plus beau jour de notre vie. L'équipe du château 
-                            a rendu notre mariage féerique. La Sainte Chapelle est d'une beauté à couper le souffle."
+                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
+                            "Non seulement l'endroit est magnifique, mais en plus les propriétaires Anne et Philippe sont des gens adorables ! La cérémonie laïque dans les ruines est exceptionnelle, le vin d'honneur sensationnel. Cet endroit est à réserver les yeux fermés !"
                         </p>
-                        <p><strong>Marie & Thomas</strong><br>Mariage - Juin 2024</p>
+                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Mathieu & Sophie</h4>
+                        <p style="font-size: 0.9rem;">Mariage - Juillet 2023</p>
                     </div>
                 </div>
                 
-                <div class="card animate-on-scroll">
+                <div class="card fade-in">
                     <div class="card-content">
-                        <p style="font-style: italic; margin-bottom: 20px;">
-                            "Notre séminaire annuel au Château du Vivier a été un véritable succès. 
-                            Le cadre historique a inspiré nos équipes et renforcé notre cohésion."
+                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
+                            "Un cadre exceptionnel pour notre séminaire annuel. Le château a sublimé notre événement et impressionné tous nos collaborateurs. L'équipe est aux petits soins et très professionnelle."
                         </p>
-                        <p><strong>Direction Générale</strong><br>Groupe CAC 40 - Septembre 2024</p>
+                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Direction Générale</h4>
+                        <p style="font-size: 0.9rem;">Entreprise CAC 40 - Septembre 2023</p>
                     </div>
                 </div>
                 
-                <div class="card animate-on-scroll">
+                <div class="card fade-in">
                     <div class="card-content">
-                        <p style="font-style: italic; margin-bottom: 20px;">
-                            "La combinaison parfaite entre histoire et modernité. Les espaces sont magnifiques 
-                            et l'équipe est aux petits soins. Une adresse incontournable."
+                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
+                            "Le lieu parfait pour notre lancement de produit. L'histoire du château a donné une dimension unique à notre événement. Nos clients ont été conquis par le cadre exceptionnel."
                         </p>
-                        <p><strong>Sophie L.</strong><br>Événement privé - Mai 2024</p>
+                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Marie D.</h4>
+                        <p style="font-size: 0.9rem;">Événement corporate - Mai 2023</p>
                     </div>
                 </div>
-            </div>
-            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
-                <a href="temoignages.html" class="btn">Tous les témoignages</a>
             </div>
         </div>
     </section>
@@ -248,56 +234,82 @@
     <!-- Section Contact -->
     <section class="section">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Visitez le Château</h2>
+            <div class="section-header">
+                <h2>Visitez le Château du Vivier</h2>
                 <div class="section-divider"></div>
             </div>
-            <div class="text-center animate-on-scroll">
-                <p class="lead">
-                    Nous serions ravis de vous faire découvrir le Château du Vivier 
-                    et de discuter de votre projet. Visites sur rendez-vous uniquement.
-                </p>
-                <div style="margin-top: 40px;">
-                    <h3>Gaëtan Delbarre</h3>
-                    <p style="font-style: italic;">Directeur du Château</p>
-                    <p style="margin-top: 20px;">
-                        📧 visitechateauduvivier@gmail.com<br>
-                        📱 07 86 85 21 37<br>
-                        📍 Fontenay-Trésigny, Seine-et-Marne (77)<br>
-                        45 km de Paris - 35 min de Paris Bercy
-                    </p>
+            
+            <div class="content-block">
+                <div class="content-text" style="text-align: center;">
+                    <h3>Planifiez Votre Visite</h3>
+                    <p>Nous serions ravis de vous faire découvrir le Château du Vivier et de discuter de votre projet. Visites sur rendez-vous uniquement.</p>
+                    
+                    <div style="margin: 2rem 0;">
+                        <p><strong>Gaëtan Delbarre</strong><br>
+                        <em>Directeur du Château</em></p>
+                        <p>📞 07 86 85 21 37<br>
+                        📧 visitechateauduvivier@gmail.com</p>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn">Demander un rendez-vous</a>
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-outline" style="background: white; color: var(--primary-color); border-color: var(--primary-color);">Voir sur la carte</a>
+                    </div>
                 </div>
-                <div style="margin-top: 40px;">
-                    <a href="contact.html" class="btn">Planifier une visite</a>
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Voir sur la carte</a>
+                
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/chateau-soiree-entreprise-seine-et-marne.jpg" alt="Vue aérienne du château" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Le footer sera automatiquement inséré ici par menu.js -->
+    <!-- Footer sera inséré ici par menu.js -->
 
     <!-- Scripts -->
     <script src="menu.js"></script>
     <script>
         // Animations au scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.animate-on-scroll').forEach(element => {
-                observer.observe(element);
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Lightbox pour la galerie
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = '<span class="lightbox-close">&times;</span><img src="" alt="">';
+        document.body.appendChild(lightbox);
+        
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+            });
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target === lightboxClose) {
+                lightbox.classList.remove('active');
+            }
         });
     </script>
 </body>
