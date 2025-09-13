@@ -3,244 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Partenaires du Château du Vivier et témoignages clients - Traiteurs, décorateurs, DJ, photographes pour mariages et événements.">
-    <meta name="keywords" content="partenaires mariage, témoignages château, avis clients, prestataires mariage">
-    
-    <title>Partenaires & Témoignages - Château du Vivier</title>
+    <meta name="description" content="Partenaires et hébergements du Château du Vivier - Hôtels, traiteurs, prestataires pour mariages et événements">
+    <title>Partenaires & Hébergements - Château du Vivier</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
-    <!-- Le menu sera injecté ici par menu.js -->
-    
-    <!-- Hero Section -->
-    <section class="hero-section hero-page">
-        <img src="images/partenaires-hero.jpg" alt="Partenaires Château du Vivier" class="hero-video">
+    <!-- Navigation sera insérée ici par menu.js -->
+
+    <!-- Hero avec image de fond -->
+    <section class="hero" style="height: 60vh; min-height: 400px;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;">
+            <img src="https://www.chateauduvivier.com/images/partenaires-mariage.jpg" alt="Partenaires du Château" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Nos Partenaires d'Excellence</h1>
-            <p class="hero-subtitle">Une équipe de professionnels passionnés</p>
+            <h1 class="hero-title">Hébergements & Partenaires</h1>
+            <p class="hero-subtitle">Notre réseau de professionnels sélectionnés</p>
         </div>
     </section>
 
-    <!-- Section Témoignages -->
+    <!-- Section Introduction -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Ils ont Vécu leur Rêve au Château</h2>
-            <p class="section-content animate-on-scroll">
-                Plus de 850 mariages organisés avec succès. Découvrez les témoignages 
-                de nos mariés et leurs recommandations pour nos partenaires.
-            </p>
-            
-            <!-- Témoignage Principal -->
-            <div style="background: var(--color-bg); padding: 50px; border-radius: 15px; margin: 50px 0;" class="animate-on-scroll">
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <h3 style="font-family: var(--font-primary); font-style: italic; font-size: 2rem; color: var(--color-primary);">
-                        Un Mariage Inoubliable
-                    </h3>
-                    <div style="color: gold; font-size: 1.5rem; margin: 15px 0;">★★★★★</div>
-                </div>
-                
-                <div style="font-style: italic; font-size: 1.2rem; line-height: 1.8; color: #555; text-align: center; max-width: 900px; margin: 0 auto;">
-                    "Nous tenons à remercier chaleureusement toute l'équipe du Château du Vivier pour avoir contribué 
-                    à faire de notre mariage un moment exceptionnel. Tout était parfait du début à la fin : 
-                    des lieux magnifiques, un service irréprochable, et une ambiance simplement magique. 
-                    Nos invités n'ont eu que des retours positifs et nous aussi, nous avons vécu un rêve éveillé."
-                </div>
-                
-                <div style="text-align: center; margin-top: 30px; font-family: var(--font-primary); font-style: italic; font-size: 1.3rem;">
-                    Eve & Florian - 25 juillet 2025
-                </div>
+            <div class="section-header">
+                <h2>Nos Partenaires de Confiance</h2>
+                <div class="section-divider"></div>
             </div>
+            
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; line-height: 1.8;">
+                    Notre expérience nous a permis de sélectionner les meilleurs prestataires. 
+                    Libre à vous de faire appel à eux pour compléter votre événement.
+                </p>
+            </div>
+        </div>
+    </section>
 
-            <!-- Grille de témoignages -->
-            <div class="grid">
-                <div class="card animate-on-scroll">
+    <!-- Section Hébergements -->
+    <section class="section section-alt" id="hebergements">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hébergements à Proximité</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
                     <div class="card-content">
-                        <div style="color: gold; margin-bottom: 15px;">★★★★★</div>
-                        <h3 class="card-title">Mariage de Rêve</h3>
-                        <p class="card-text" style="font-style: italic;">
-                            "Merci à toute l'équipe du château pour avoir réalisé notre rêve ! 
-                            Un accueil et accompagnement parfait par Jonathan, un cadre magique idyllique 
-                            qui continue de faire rêver tous nos convives."
+                        <h3 class="card-title">Hôtel Kyriad</h3>
+                        <p class="card-text">
+                            114 rue Bertaux<br>
+                            77610 Fontenay-Trésigny<br>
+                            <strong>📞 01 64 42 64 80</strong>
                         </p>
-                        <p style="margin-top: 20px; font-weight: bold;">Audrey & Yohan - Juillet 2024</p>
+                        <a href="tel:0164426480" class="btn">Appeler</a>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
+                
+                <div class="card fade-in">
                     <div class="card-content">
-                        <div style="color: gold; margin-bottom: 15px;">★★★★★</div>
-                        <h3 class="card-title">Tout était Parfait</h3>
-                        <p class="card-text" style="font-style: italic;">
-                            "Un lieu à couper le souffle, une équipe en or, très à l'écoute. 
-                            Merci pour votre professionnalisme, votre gentillesse, et votre efficacité. 
-                            Vraiment vous étiez tous géniaux."
+                        <h3 class="card-title">Hôtel Première Classe</h3>
+                        <p class="card-text">
+                            114 rue Bertaux<br>
+                            77610 Fontenay-Trésigny<br>
+                            <strong>📞 01 64 42 61 82</strong><br>
+                            <small>(avant 11h ou après 17h)</small><br>
+                            📧 fontenaytresigny@premiereclasse.fr
                         </p>
-                        <p style="margin-top: 20px; font-weight: bold;">Élodie & Nicolas - Août 2022</p>
+                        <a href="tel:0164426182" class="btn">Appeler</a>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
+                
+                <div class="card fade-in">
                     <div class="card-content">
-                        <div style="color: gold; margin-bottom: 15px;">★★★★★</div>
-                        <h3 class="card-title">Un Compte de Fée</h3>
-                        <p class="card-text" style="font-style: italic;">
-                            "Un lieu exceptionnel, magique qui a fait de notre mariage un vrai compte de fée. 
-                            Anne nous a fait toute la décoration des ruines et de la salle de réception 
-                            et franchement tout était parfait!"
+                        <h3 class="card-title">La Maison d'Émilie</h3>
+                        <p class="card-text">
+                            Emilie Chrisment<br>
+                            3 rue Parmentier<br>
+                            77390 Chaumes en Brie<br>
+                            <strong>📞 06 24 30 14 86</strong><br>
+                            📧 emilie@la-maison-demilie.com
                         </p>
-                        <p style="margin-top: 20px; font-weight: bold;">Caroline - Août 2018</p>
+                        <a href="tel:0624301486" class="btn">Appeler</a>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
+                
+                <div class="card fade-in">
                     <div class="card-content">
-                        <div style="color: gold; margin-bottom: 15px;">★★★★★</div>
-                        <h3 class="card-title">Magique et Féerique</h3>
-                        <p class="card-text" style="font-style: italic;">
-                            "La décoration de la Chapelle, du Vin d'honneur et de la Salle de réception 
-                            était Magique Féerique!! Ce sont d'ailleurs les mots formulés par nos convives 
-                            toute la soirée."
+                        <h3 class="card-title">Françoise et Michel Rieul</h3>
+                        <p class="card-text">
+                            Chambres d'hôtes - 10 personnes<br>
+                            22 rue Gallier<br>
+                            77390 Chaumes<br>
+                            <strong>📞 06 72 84 75 46</strong><br>
+                            📧 mhrieul@gmail.com
                         </p>
-                        <p style="margin-top: 20px; font-weight: bold;">Christelle & Fred - Mai 2018</p>
+                        <a href="tel:0672847546" class="btn">Appeler</a>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
+                
+                <div class="card fade-in">
                     <div class="card-content">
-                        <div style="color: gold; margin-bottom: 15px;">★★★★★</div>
-                        <h3 class="card-title">Service d'Exception</h3>
-                        <p class="card-text" style="font-style: italic;">
-                            "Leur bonne humeur, leur bienveillance et leur professionnalisme 
-                            nous ont permis de passer un moment exceptionnel. Nos invités ont été 
-                            ravis par le cadre et la qualité des prestations."
+                        <h3 class="card-title">Le Portail Bleu</h3>
+                        <p class="card-text">
+                            2 route de Fontenay<br>
+                            77610 Châtres<br>
+                            Anne: <strong>06 66 56 12 15</strong><br>
+                            Jean-Noël: <strong>06 61 33 44 77</strong><br>
+                            📧 leportailbleu.gite@gmail.com
                         </p>
-                        <p style="margin-top: 20px; font-weight: bold;">Amadou & Madalena - Juillet 2021</p>
+                        <a href="tel:0666561215" class="btn">Appeler</a>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
+                
+                <div class="card fade-in">
                     <div class="card-content">
-                        <div style="color: gold; margin-bottom: 15px;">★★★★★</div>
-                        <h3 class="card-title">Organisation Parfaite</h3>
-                        <p class="card-text" style="font-style: italic;">
-                            "Nous avons passé une très bonne journée grâce à l'organisation 
-                            et le professionnalisme du personnel. Nos invités ont été émerveillés du lieu. 
-                            Je recommande à 100% ce domaine."
+                        <h3 class="card-title">Lydie Landart</h3>
+                        <p class="card-text">
+                            Chambres d'hôte - 9 couchages<br>
+                            18 rue Jules Raimu<br>
+                            77173 Chevry Cossigny<br>
+                            <strong>📞 06 69 49 97 80</strong>
                         </p>
-                        <p style="margin-top: 20px; font-weight: bold;">Emmanuelle & Ludovic - Août 2018</p>
+                        <a href="tel:0669499780" class="btn">Appeler</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Partenaires Recommandés -->
-    <section class="section section-alt">
+    <!-- Section Restauration -->
+    <section class="section" id="restauration">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">Nos Partenaires Recommandés</h2>
-            <p class="section-content animate-on-scroll">
-                Des professionnels d'excellence sélectionnés pour leur savoir-faire 
-                et recommandés par nos mariés
-            </p>
+            <div class="section-header">
+                <h2>Restauration & Réception</h2>
+                <div class="section-divider"></div>
+            </div>
             
-            <div class="grid">
-                <div class="card animate-on-scroll">
-                    <img data-src="images/partenaire-traiteur.jpg" alt="PRO-G Traiteur" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">PRO-G Traiteur</h3>
-                        <p class="card-text">
-                            <strong>Gastronomie d'Excellence</strong><br>
-                            "Le repas et le vin d'honneur ont été un véritable succès. 
-                            Tout était délicieux, un régal pour les papilles!"
-                        </p>
-                        <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">
-                            Recommandé par Eve & Florian, Audrey & Yohan
-                        </p>
-                    </div>
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>PRO-G Traiteur</h3>
+                    <p>Notre traiteur partenaire privilégié pour vos réceptions d'exception.</p>
+                    <p>
+                        Ferme Arvigny, 77550 Moissy-Cramayel<br>
+                        <strong>Marion ou Nicolas : 01 60 65 55 87</strong><br>
+                        📧 marion@progtraiteur.fr
+                    </p>
+                    <a href="tel:0160655587" class="btn">Contacter</a>
                 </div>
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/lieu-evenementiel-77.jpg" alt="Traiteur" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card animate-on-scroll">
-                    <img data-src="images/partenaire-dj.jpg" alt="DJ Prestige Events 77" class="card-image">
+    <!-- Section Animation -->
+    <section class="section section-alt" id="animation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Animation & Musique</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
                     <div class="card-content">
                         <h3 class="card-title">DJ Prestige Events 77</h3>
                         <p class="card-text">
-                            <strong>Animation & Musique</strong><br>
-                            "Manu et Michèle ont su créer une ambiance festive et émotive. 
-                            Leur écoute tout au long de la journée a été incroyable."
-                        </p>
-                        <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">
-                            Recommandé par Eve & Florian
+                            Manuel Martins<br>
+                            <strong>📞 06 42 96 25 99</strong><br>
+                            📧 dj.manu.0642962599@gmail.com
                         </p>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
-                    <img data-src="images/partenaire-decoration.jpg" alt="Anne Décoration" class="card-image">
+                
+                <div class="card fade-in">
                     <div class="card-content">
-                        <h3 class="card-title">Anne - Décoration Florale</h3>
+                        <h3 class="card-title">DJ Pascal Ginga</h3>
                         <p class="card-text">
-                            <strong>Créatrice d'Ambiances</strong><br>
-                            "Anne a sublimé les lieux selon nos souhaits et nos rêves. 
-                            Elle a su comprendre nos attentes dans les moindres détails."
-                        </p>
-                        <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">
-                            Recommandée par tous nos mariés
+                            <strong>📞 06 63 14 49 72</strong><br>
+                            📧 pginga@anatim-sonolight.fr
                         </p>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
-                    <img data-src="images/partenaire-artifice.jpg" alt="Festifire" class="card-image">
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">DJ BoomBap</h3>
+                        <p class="card-text">
+                            DJ Flakes & DJ Physical<br>
+                            <strong>📞 06 24 53 66 55</strong><br>
+                            📧 boombapevent@gmail.com
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Live One</h3>
+                        <p class="card-text">
+                            Groupe de musique live<br>
+                            Fred : <strong>06 25 99 66 22</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
                     <div class="card-content">
                         <h3 class="card-title">Festifire</h3>
                         <p class="card-text">
-                            <strong>Feux d'Artifice</strong><br>
-                            "Un feu d'artifice absolument magnifique, bien au-delà de nos attentes. 
-                            Un moment spectaculaire et magique!"
-                        </p>
-                        <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">
-                            Recommandé par Eve & Florian
+                            Artificier<br>
+                            <strong>📞 06 87 02 68 60</strong>
                         </p>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
-                    <img data-src="images/partenaire-babysitting.jpg" alt="Petitapetits" class="card-image">
+                
+                <div class="card fade-in">
                     <div class="card-content">
-                        <h3 class="card-title">Petitapetits</h3>
+                        <h3 class="card-title">Crêpes Partie</h3>
                         <p class="card-text">
-                            <strong>Baby-sitting Premium</strong><br>
-                            "Ils ont pris soin de nos enfants et petits invités avec beaucoup 
-                            de douceur et de professionnalisme."
-                        </p>
-                        <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">
-                            Recommandé par Eve & Florian
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card animate-on-scroll">
-                    <img data-src="images/partenaire-photo.jpg" alt="Photographes" class="card-image">
-                    <div class="card-content">
-                        <h3 class="card-title">Photographes Partenaires</h3>
-                        <p class="card-text">
-                            <strong>Capturer l'Émotion</strong><br>
-                            Plusieurs photographes de talent pour immortaliser 
-                            chaque instant de votre jour J.
-                        </p>
-                        <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">
-                            Portfolio sur demande
+                            Brunch - Louis Pfister<br>
+                            3 rue du Marteroy, 77640 Jouarre<br>
+                            <strong>📞 06 79 09 45 23</strong>
                         </p>
                     </div>
                 </div>
@@ -248,54 +240,53 @@
         </div>
     </section>
 
-    <!-- L'Équipe du Château -->
-    <section class="section">
+    <!-- Section Photo/Vidéo -->
+    <section class="section" id="photovideo">
         <div class="container">
-            <h2 class="section-title animate-on-scroll">L'Équipe du Château</h2>
-            
-            <div style="text-align: center; margin: 50px 0;">
-                <div class="quote animate-on-scroll">
-                    "Au plaisir de vous recevoir et de vous faire découvrir notre savoir-faire 
-                    issu de la mise en œuvre de plus de 850 mariages."
-                    <div class="quote-author">
-                        — Anne & Philippe, propriétaires
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2>Photo & Vidéo</h2>
+                <div class="section-divider"></div>
             </div>
             
-            <div class="grid">
-                <div class="card animate-on-scroll">
-                    <div class="card-content text-center">
-                        <h3 class="card-title">Jonathan</h3>
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Béatrice et Américo</h3>
                         <p class="card-text">
-                            <strong>Coordinateur Événements</strong><br><br>
-                            Votre interlocuteur privilégié pour l'organisation 
-                            de votre mariage ou événement. Disponible, à l'écoute 
-                            et passionné par son métier.
+                            Photographes<br>
+                            <strong>📞 06 63 54 37 20</strong>
                         </p>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
-                    <div class="card-content text-center">
-                        <h3 class="card-title">Anne</h3>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Lionel Tarrago</h3>
                         <p class="card-text">
-                            <strong>Décoratrice & Propriétaire</strong><br><br>
-                            Créatrice d'ambiances féeriques, Anne sublime 
-                            chaque espace selon vos désirs avec talent 
-                            et créativité.
+                            Photographe<br>
+                            <strong>📞 06 47 15 45 15</strong>
                         </p>
                     </div>
                 </div>
-
-                <div class="card animate-on-scroll">
-                    <div class="card-content text-center">
-                        <h3 class="card-title">Philippe</h3>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Studio Photo-Vidéo</h3>
                         <p class="card-text">
-                            <strong>Propriétaire</strong><br><br>
-                            Garant de l'excellence du domaine, Philippe 
-                            veille personnellement au bon déroulement 
-                            de chaque événement.
+                            Yohann<br>
+                            <strong>📞 06 21 41 94 48</strong><br>
+                            🌐 www.photo-studio77.com
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Helicam International</h3>
+                        <p class="card-text">
+                            Vidéo Drone<br>
+                            Graham HAY<br>
+                            <strong>📞 06 76 60 29 31</strong>
                         </p>
                     </div>
                 </div>
@@ -303,70 +294,171 @@
         </div>
     </section>
 
-    <!-- Statistiques -->
+    <!-- Section Services -->
+    <section class="section section-alt" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Services Complémentaires</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Baby Sitting</h3>
+                        <p class="card-text">
+                            <strong>Petits à Petits</strong><br>
+                            📧 petitsapetits@yahoo.com<br>
+                            📞 06 59 00 46 57<br><br>
+                            <strong>Noa & Jade</strong><br>
+                            📞 07 78 32 52 47
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Animation Enfants</h3>
+                        <p class="card-text">
+                            <strong>Écurie du Vivier</strong><br>
+                            Promenade en poney dans le château<br>
+                            📞 06 47 83 59 11
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Calèche</h3>
+                        <p class="card-text">
+                            <strong>Attelages de Rougeau</strong><br>
+                            Freddy MARTEL<br>
+                            📞 06 88 48 85 71
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Arrivée en Hélicoptère</h3>
+                        <p class="card-text">
+                            Stéphane BUY<br>
+                            📞 06 72 92 68 49
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Chauffeur DDS Driver</h3>
+                        <p class="card-text">
+                            Damien<br>
+                            📞 07 56 95 59 86<br>
+                            📧 contact.ddsdriver@gmail.com
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-content">
+                        <h3 class="card-title">Make Up & Hair Artist</h3>
+                        <p class="card-text">
+                            Khaoula TOUIL<br>
+                            📞 07 61 56 57 09<br>
+                            📧 khaoulatouil.mua@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Visites Historiques -->
+    <section class="section" id="visites">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visites Historiques</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Découvrez l'Histoire du Château</h3>
+                    <p>Organisez une visite guidée pour vos invités ou vos collaborateurs.</p>
+                    
+                    <div style="margin: 2rem 0;">
+                        <p><strong>Gaëtan Delbarre</strong><br>
+                        📞 07 86 85 21 37<br>
+                        📧 visitechateauduvivier@gmail.com<br>
+                        🌐 visitechateauduviv.wix.com/chateau-royal</p>
+                        
+                        <p style="margin-top: 1.5rem;"><strong>Le Cercle Historique Fontenaisien</strong><br>
+                        Michel Forest<br>
+                        📞 06 21 24 04 40<br>
+                        📧 michel.forest2@gmail.com</p>
+                    </div>
+                </div>
+                <div class="content-image fade-in">
+                    <img src="https://www.chateauduvivier.com/images/chateau-du-vivier-4.jpg" alt="Visites historiques" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Team Building -->
     <section class="section section-alt">
-        <div class="container text-center">
-            <h2 class="section-title animate-on-scroll">Notre Expérience en Chiffres</h2>
+        <div class="container">
+            <div class="section-header">
+                <h2>Agences Team Building</h2>
+                <div class="section-divider"></div>
+            </div>
             
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 60px;">
-                <div class="animate-on-scroll">
-                    <div style="font-size: 3rem; font-weight: bold; color: var(--color-primary); margin-bottom: 10px;">850+</div>
-                    <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Mariages Organisés</div>
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Partner Events</h3>
+                    <p>Organisation complète de vos événements d'entreprise et team building.</p>
+                    <p>
+                        Wendy ou Laure<br>
+                        <strong>📞 01 60 05 10 40</strong><br>
+                        🌐 www.partner-events.com
+                    </p>
                 </div>
-                
-                <div class="animate-on-scroll">
-                    <div style="font-size: 3rem; font-weight: bold; color: var(--color-primary); margin-bottom: 10px;">100%</div>
-                    <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Satisfaction Client</div>
-                </div>
-                
-                <div class="animate-on-scroll">
-                    <div style="font-size: 3rem; font-weight: bold; color: var(--color-primary); margin-bottom: 10px;">15+</div>
-                    <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Partenaires Premium</div>
-                </div>
-                
-                <div class="animate-on-scroll">
-                    <div style="font-size: 3rem; font-weight: bold; color: var(--color-primary); margin-bottom: 10px;">5★</div>
-                    <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Avis Moyens</div>
+                <div class="content-text">
+                    <h3>Performances - Régates</h3>
+                    <p>Team building avec régates sur le plan d'eau du château.</p>
+                    <p>
+                        Thierry LEGER<br>
+                        <strong>📞 06 22 48 90 47</strong><br>
+                        📧 tleger@performances-net.com<br>
+                        🌐 www.performances-net.com
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="section">
-        <div class="container text-center">
-            <h2 class="section-title animate-on-scroll">Rejoignez Nos Mariés Heureux</h2>
-            <p class="section-content animate-on-scroll">
-                Créons ensemble votre événement d'exception avec notre équipe 
-                et nos partenaires de confiance
-            </p>
-            <div class="animate-on-scroll">
-                <a href="contact.html" class="btn">Demander un devis</a>
-                <a href="formule-mariage.html" class="btn btn-outline" style="margin-left: 20px;">Découvrir nos formules</a>
-            </div>
-        </div>
-    </section>
+    <!-- Footer sera inséré ici par menu.js -->
 
-    <!-- Le footer sera injecté ici par menu.js -->
-    
     <!-- Scripts -->
     <script src="menu.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.ChateauVivier) {
-                ChateauVivier.initSmoothScroll();
-                ChateauVivier.initLazyLoading();
-                ChateauVivier.initScrollAnimations();
-            }
+        // Animations au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
         });
     </script>
-    
-    <style>
-        @media (max-width: 768px) {
-            .section section-alt div[style*="grid-template-columns: repeat(4"] {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-    </style>
 </body>
 </html>
