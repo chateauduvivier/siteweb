@@ -62,7 +62,6 @@ function createNavigation() {
     
     document.body.insertAdjacentHTML('afterbegin', nav);
     
-    // Initialiser les fonctionnalités
     initMobileMenu();
     handleNavScroll();
     initDropdowns();
@@ -80,7 +79,6 @@ function initMobileMenu() {
             document.body.classList.toggle('menu-open');
         });
         
-        // Fermer au clic sur un lien
         const links = menu.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', () => {
@@ -107,7 +105,6 @@ function handleNavScroll() {
             nav.classList.remove('scrolled');
         }
         
-        // Hide/show on mobile scroll
         if (window.innerWidth < 768) {
             if (currentScroll > lastScroll && currentScroll > 300) {
                 nav.classList.add('hidden');
@@ -127,7 +124,6 @@ function initDropdowns() {
         const link = dropdown.querySelector('.nav-link');
         const menu = dropdown.querySelector('.dropdown');
         
-        // Desktop hover
         if (window.innerWidth > 768) {
             dropdown.addEventListener('mouseenter', () => {
                 menu.style.display = 'block';
@@ -144,13 +140,11 @@ function initDropdowns() {
             });
         }
         
-        // Mobile click
         link.addEventListener('click', (e) => {
             if (window.innerWidth <= 768 && menu) {
                 e.preventDefault();
                 const isOpen = menu.style.display === 'block';
                 
-                // Fermer tous les autres dropdowns
                 document.querySelectorAll('.dropdown').forEach(dd => {
                     dd.style.display = 'none';
                     dd.classList.remove('show');
@@ -233,7 +227,6 @@ function createFooter() {
     document.body.insertAdjacentHTML('beforeend', footer);
 }
 
-// Smooth scroll pour les ancres
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -249,7 +242,6 @@ function initSmoothScroll() {
     });
 }
 
-// Initialisation
 function initializeLayout() {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
