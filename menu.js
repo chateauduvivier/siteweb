@@ -90,14 +90,33 @@ function initDropdowns() {
             }
         });
         
-        // Masquer après un délai sur desktop
+        // Masquer après un délai sur desktop - PLUS LONG DÉLAI
         dropdown.addEventListener('mouseleave', function() {
             if (window.innerWidth > 768) {
                 timeoutId = setTimeout(() => {
                     this.classList.remove('active');
-                }, 200);
+                }, 300); // Augmenté de 200 à 300ms
             }
         });
+        
+        // Garder le menu ouvert quand on survole le sous-menu
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        if (dropdownMenu) {
+            dropdownMenu.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 768) {
+                    clearTimeout(timeoutId);
+                    dropdown.classList.add('active');
+                }
+            });
+            
+            dropdownMenu.addEventListener('mouseleave', function() {
+                if (window.innerWidth > 768) {
+                    timeoutId = setTimeout(() => {
+                        dropdown.classList.remove('active');
+                    }, 300);
+                }
+            });
+        }
         
         // Pour mobile - toggle au clic
         const mainLink = dropdown.querySelector('> a');
