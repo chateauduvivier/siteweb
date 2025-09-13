@@ -1,216 +1,645 @@
-// menu.js - Navigation principale du Château du Vivier - Version Simplifiée
-
-function createNavigation() {
-    const nav = `
-        <nav class="navigation" id="navigation">
-            <div class="nav-wrapper">
-                <div class="nav-top-line">
-                    <!-- Logo et titre alignés à gauche -->
-                    <div class="nav-brand">
-                        <svg class="castle-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 13v8h4v-6h2v6h4v-6h2v6h4v-6h2v6h4v-8l-11-9-11 9zm0-2l11-9 11 9v10h-8v-6h-6v6h-8v-10z"/>
-                            <path d="M9 3v1.5l3-1.5 3 1.5v-1.5h-6z"/>
-                        </svg>
-                        <a href="index.html" class="nav-logo">Château du Vivier</a>
-                    </div>
-                    
-                    <!-- Menu aligné à droite -->
-                    <ul class="nav-menu" id="navMenu">
-                        <li class="has-dropdown">
-                            <a href="histoire.html">LE CHÂTEAU</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="histoire.html">Notre Histoire</a></li>
-                                <li><a href="sainte-chapelle.html">La Sainte Chapelle</a></li>
-                                <li><a href="salles.html">Nos Espaces</a></li>
-                                <li><a href="parc.html">Le Parc</a></li>
-                            </ul>
-                        </li>
-                        
-                        <li class="has-dropdown">
-                            <a href="formule-mariage.html">MARIAGES</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="ceremonie.html">Cérémonies</a></li>
-                                <li><a href="formule-mariage.html">Formules Mariage</a></li>
-                                <li><a href="menu-mariage.html">Menu Gastronomique</a></li>
-                            </ul>
-                        </li>
-                        
-                        <li class="has-dropdown">
-                            <a href="formule-entreprise.html">ENTREPRISES</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="formule-entreprise.html">Séminaires</a></li>
-                                <li><a href="menu-seminaire.html">Offre Traiteur</a></li>
-                            </ul>
-                        </li>
-                        
-                        <li><a href="portfolio.html">GALERIE</a></li>
-                        <li><a href="partenaires.html">PARTENAIRES</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                    </ul>
-                    
-                    <!-- Menu Mobile Toggle -->
-                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    `;
-    
-    // Insérer la navigation au début du body
-    document.body.insertAdjacentHTML('afterbegin', nav);
-    
-    // Activer le menu mobile
-    initMobileMenu();
-    
-    // Gérer le scroll pour l'effet de navigation
-    handleNavigationScroll();
-    
-    // Marquer la page active
-    markActivePage();
-    
-    // Gérer les dropdowns mobiles
-    initMobileDropdowns();
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-function initMobileMenu() {
-    const toggle = document.getElementById('mobileMenuToggle');
-    const menu = document.getElementById('navMenu');
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background: #fff;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    color: #555;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.castle-icon {
+    width: 30px;
+    height: 30px;
+    fill: #C8A46A;
+}
+
+.nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 30px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #333;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #C8A46A;
+}
+
+/* Dropdown Menu - FIXED */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(200, 164, 106, 0.2);
+    border-top: 3px solid #C8A46A;
+    list-style: none;
+    min-width: 250px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(200, 164, 106, 0.1);
+    color: #C8A46A;
+    padding-left: 30px;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #333;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.2) 0%, 
+        rgba(0, 0, 0, 0.4) 50%, 
+        rgba(0, 0, 0, 0.6) 100%);
+}
+
+.hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #C8A46A;
+}
+
+.hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Content Sections */
+.content-section {
+    padding: 100px 0;
+}
+
+.content-section.bg-light {
+    background: #f8f6f3;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.content-grid.reverse {
+    direction: rtl;
+}
+
+.content-grid.reverse .content-text,
+.content-grid.reverse .content-image {
+    direction: ltr;
+}
+
+.content-text {
+    padding: 20px;
+}
+
+.content-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.content-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Spaces Grid */
+.spaces-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.space-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.space-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.space-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.space-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.space-card:hover .space-image img {
+    transform: scale(1.1);
+}
+
+.space-content {
+    padding: 30px;
+}
+
+.space-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.space-content p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.capacity {
+    font-size: 13px;
+    color: #C8A46A;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Buttons */
+.btn-elegant {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    background: #1a1a1a;
+    border: 2px solid #1a1a1a;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-elegant:hover {
+    background: transparent;
+    color: #1a1a1a;
+    transform: translateX(5px);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #C8A46A;
+    background: transparent;
+    border: 1px solid #C8A46A;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #C8A46A;
+    color: white;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 100px 0;
+    background: linear-gradient(to bottom, #f8f6f3, white);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.contact-info a {
+    color: #C8A46A;
+    text-decoration: underline;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #C8A46A;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #C8A46A;
+}
+
+.footer-section p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #999;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #C8A46A;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 30px 20px 20px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 13px;
+}
+
+.footer-bottom a {
+    color: #C8A46A;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .content-grid,
+    .spaces-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
     
-    if (toggle && menu) {
-        toggle.addEventListener('click', function() {
-            menu.classList.toggle('active');
-            toggle.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-        
-        // Fermer le menu au clic sur un lien simple
-        const simpleLinks = menu.querySelectorAll('a:not(.has-dropdown > a)');
-        simpleLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('active');
-                toggle.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
+    .contact-content {
+        grid-template-columns: 1fr;
     }
 }
 
-function initMobileDropdowns() {
-    if (window.innerWidth <= 768) {
-        const dropdowns = document.querySelectorAll('.has-dropdown');
-        
-        dropdowns.forEach(dropdown => {
-            const mainLink = dropdown.querySelector('> a');
-            if (mainLink) {
-                mainLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                    
-                    // Fermer les autres dropdowns
-                    dropdowns.forEach(other => {
-                        if (other !== dropdown) {
-                            other.classList.remove('active');
-                        }
-                    });
-                });
-            }
-        });
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        transition: right 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+    
+    .nav-link {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        border: none;
+        background: #f8f8f8;
+        margin-top: 10px;
+        display: none;
+    }
+    
+    .nav-item.dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
     }
 }
-
-function handleNavigationScroll() {
-    const nav = document.getElementById('navigation');
-    if (!nav) return;
-    
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-}
-
-function markActivePage() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage) {
-            link.classList.add('active');
-            const parentLi = link.closest('.has-dropdown');
-            if (parentLi) {
-                parentLi.querySelector('> a').classList.add('active-parent');
-            }
-        }
-    });
-}
-
-// Créer le footer
-function createFooter() {
-    const footer = `
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Château du Vivier</h3>
-                    <p>Palais Royal depuis 1285</p>
-                    <p>Monument Historique</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Gaëtan Delbarre</p>
-                    <p>📧 visitechateauduvivier@gmail.com</p>
-                    <p>📱 07 86 85 21 37</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Localisation</h4>
-                    <p>Seine-et-Marne (77)</p>
-                    <p>45 km de Paris</p>
-                    <p>35 min de Paris Bercy</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Suivez-nous</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Château du Vivier - Tous droits réservés | 
-                   <a href="mentions-legales.html">Mentions légales</a> | 
-                   <a href="cgv.html">CGV</a>
-                </p>
-            </div>
-        </footer>
-    `;
-    
-    document.body.insertAdjacentHTML('beforeend', footer);
-}
-
-// Fonction d'initialisation
-function initializeLayout() {
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            createNavigation();
-            createFooter();
-        });
-    } else {
-        createNavigation();
-        createFooter();
-    }
-}
-
-// Initialiser
-initializeLayout();
