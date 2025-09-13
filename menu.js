@@ -81,21 +81,28 @@ function initDropdowns() {
     
     dropdowns.forEach(dropdown => {
         let timeoutId;
+        let isOverDropdown = false;
+        let isOverMenu = false;
         
         // Afficher au survol sur desktop
         dropdown.addEventListener('mouseenter', function() {
             if (window.innerWidth > 768) {
                 clearTimeout(timeoutId);
+                isOverDropdown = true;
                 this.classList.add('active');
             }
         });
         
-        // Masquer après un délai sur desktop - PLUS LONG DÉLAI
+        // Marquer quand on quitte le dropdown principal
         dropdown.addEventListener('mouseleave', function() {
             if (window.innerWidth > 768) {
+                isOverDropdown = false;
+                // Vérifier après un court délai si on n'est ni sur le dropdown ni sur le menu
                 timeoutId = setTimeout(() => {
-                    this.classList.remove('active');
-                }, 300); // Augmenté de 200 à 300ms
+                    if (!isOverDropdown && !isOverMenu) {
+                        this.classList.remove('active');
+                    }
+                }, 100); // Délai court pour permettre de passer au sous-menu
             }
         });
         
@@ -105,14 +112,19 @@ function initDropdowns() {
             dropdownMenu.addEventListener('mouseenter', function() {
                 if (window.innerWidth > 768) {
                     clearTimeout(timeoutId);
+                    isOverMenu = true;
                     dropdown.classList.add('active');
                 }
             });
             
             dropdownMenu.addEventListener('mouseleave', function() {
                 if (window.innerWidth > 768) {
+                    isOverMenu = false;
+                    // Vérifier après un délai si on n'est toujours pas revenu
                     timeoutId = setTimeout(() => {
-                        dropdown.classList.remove('active');
+                        if (!isOverDropdown && !isOverMenu) {
+                            dropdown.classList.remove('active');
+                        }
                     }, 300);
                 }
             });
@@ -120,9 +132,9 @@ function initDropdowns() {
         
         // Pour mobile - toggle au clic
         const mainLink = dropdown.querySelector('> a');
-        if (mainLink && window.innerWidth <= 768) {
+        if (mainLink) {
             mainLink.addEventListener('click', function(e) {
-                if (dropdown.querySelector('.dropdown-menu')) {
+                if (window.innerWidth <= 768 && dropdown.querySelector('.dropdown-menu')) {
                     e.preventDefault();
                     dropdown.classList.toggle('active');
                     
