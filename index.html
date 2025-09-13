@@ -3,537 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Château du Vivier - Palais Royal depuis Philippe IV Le Bel. Location pour mariages et événements d'entreprise en Seine-et-Marne, à 45km de Paris.">
-    <meta name="keywords" content="château, mariage, événement, séminaire, Seine-et-Marne, location salle, réception">
-    <meta name="author" content="Château du Vivier">
-    <meta property="og:title" content="Château du Vivier - Location Château Mariage & Événements">
-    <meta property="og:description" content="Palais Royal historique pour mariages et événements d'entreprise">
-    <meta property="og:type" content="website">
-    <title>Château du Vivier - Location Château Mariage & Événements Seine-et-Marne</title>
+    <meta name="description" content="Château du Vivier - Palais Royal depuis Philippe IV Le Bel. Location de château pour mariages et événements d'entreprise en Seine-et-Marne.">
+    <meta name="keywords" content="château mariage, location château, événement entreprise, Seine-et-Marne, Fontenay-Trésigny">
+    
+    <title>Château du Vivier - Location Château Mariage & Événements</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
-    <!-- CSS intégré -->
-    <style>
-        /* Reset et Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #8B7355;
-            --secondary-color: #D4AF37;
-            --text-dark: #2C2416;
-            --text-light: #5A4A3A;
-            --bg-light: #FAF8F5;
-            --bg-alt: #F5F2ED;
-            --white: #FFFFFF;
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); }
-        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 1rem;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover:after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-dark);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-top: 70px;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-
-        .hero-video iframe {
-            width: 100vw;
-            height: 56.25vw;
-            min-height: 100vh;
-            min-width: 177.77vh;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
-            z-index: -1;
-        }
-
-        .hero-content {
-            text-align: center;
-            color: var(--white);
-            z-index: 1;
-            padding: 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 5rem);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 300;
-            margin-bottom: 2rem;
-            font-style: italic;
-            color: var(--white);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            transition: var(--transition);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn:hover {
-            background: var(--secondary-color);
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-alt {
-            background: var(--bg-alt);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .section-divider {
-            width: 80px;
-            height: 3px;
-            background: var(--secondary-color);
-            margin: 2rem auto;
-        }
-
-        /* Content Blocks */
-        .content-block {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .content-block.reverse {
-            direction: rtl;
-        }
-
-        .content-block.reverse .content-text {
-            direction: ltr;
-        }
-
-        .content-text h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .content-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        /* Cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .card-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .card:hover .card-image img {
-            transform: scale(1.1);
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .card-title {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            cursor: pointer;
-            height: 300px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: var(--white);
-            padding: 2rem;
-            transform: translateY(100%);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-caption {
-            transform: translateY(0);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 50px 0 30px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-section h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .footer-section p,
-        .footer-section li {
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: var(--white);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
-                padding: 2rem 0;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-
-            .content-block,
-            .content-block.reverse {
-                grid-template-columns: 1fr;
-                direction: ltr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Château du Vivier</a>
-            <ul class="nav-menu">
-                <li><a href="#" class="nav-link">Accueil</a></li>
-                <li><a href="#histoire" class="nav-link">Histoire</a></li>
-                <li><a href="#espaces" class="nav-link">Nos Espaces</a></li>
-                <li><a href="#mariages" class="nav-link">Mariages</a></li>
-                <li><a href="#entreprises" class="nav-link">Entreprises</a></li>
-                <li><a href="#galerie" class="nav-link">Galerie</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Le menu sera automatiquement inséré ici par menu.js -->
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-video">
+    <!-- Hero Section avec Vidéo YouTube en plein écran -->
+    <section class="hero-section">
+        <div class="video-wrapper">
             <iframe 
                 src="https://www.youtube.com/embed/l6XMvb_TKRY?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&playlist=l6XMvb_TKRY"
                 frameborder="0"
@@ -543,76 +31,62 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Château du Vivier</h1>
-            <p class="hero-subtitle">Un Château... Votre réception... Notre passion</p>
-            <div class="hero-buttons">
-                <a href="#histoire" class="btn btn-outline">Découvrir l'histoire</a>
-                <a href="#contact" class="btn btn-outline">Planifier une visite</a>
+            <h1 class="animate-on-scroll">Château du Vivier</h1>
+            <p class="animate-on-scroll">Un Château... Votre réception... Notre passion</p>
+            <div class="hero-buttons animate-on-scroll">
+                <a href="histoire.html" class="btn-hero btn-outline">Découvrir l'histoire</a>
+                <a href="contact.html" class="btn-hero btn-outline">Planifier une visite</a>
             </div>
         </div>
     </section>
 
     <!-- Section Présentation -->
-    <section class="section" id="histoire">
+    <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Un Lieu d'Exception en Seine-et-Marne</h2>
+            <div class="section-header animate-on-scroll">
+                <h2>Un Lieu d'Exception</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="content-block">
-                <div class="content-text">
-                    <h3>Palais Royal depuis Philippe IV Le Bel</h3>
-                    <p>À 45 km de Paris et 35 minutes de Paris Bercy, le Château du Vivier vous accueille dans un cadre historique unique. Maison de campagne des rois de France de Philippe IV le Bel à Louis XIV, ce monument historique offre une harmonie époustouflante entre vestiges majestueux, romantisme de ses étangs et terrasses fleuries.</p>
-                    <p>Fort de 850 mariages organisés, nous mettons notre savoir-faire à votre disposition dans le respect permanent de vos attentes.</p>
-                    <a href="#contact" class="btn">Découvrir notre histoire</a>
-                </div>
-                <div class="content-image fade-in">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='20'%3EVue du Château%3C/text%3E%3C/svg%3E" alt="Vue du Château du Vivier">
-                </div>
-            </div>
+            <p class="lead text-center animate-on-scroll">
+                Le Château du Vivier, résidence royale depuis le XIVe siècle, vous ouvre ses portes 
+                pour vos événements les plus prestigieux. Un cadre historique unique alliant 
+                l'authenticité médiévale au confort moderne.
+            </p>
         </div>
     </section>
 
     <!-- Section Espaces -->
-    <section class="section section-alt" id="espaces">
+    <section class="section bg-light">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Nos Espaces de Réception</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="card-grid">
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23e8e8e8'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='18'%3ESainte Chapelle%3C/text%3E%3C/svg%3E" alt="Sainte Chapelle">
-                    </div>
+            <div class="grid">
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" alt="Sainte Chapelle" loading="lazy">
                     <div class="card-content">
-                        <h3 class="card-title">La Sainte Chapelle</h3>
-                        <p class="card-text">Joyau édifié par Charles V, notre Sainte Chapelle accueille vos cérémonies laïques ou religieuses dans un cadre gothique authentique du XIVe siècle.</p>
-                        <a href="#contact" class="btn">En savoir plus</a>
+                        <h3>La Sainte Chapelle</h3>
+                        <p>Joyau gothique du XIVe siècle édifié par Charles V pour vos cérémonies d'exception</p>
+                        <a href="sainte-chapelle.html" class="btn">Découvrir</a>
                     </div>
                 </div>
                 
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23e8e8e8'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='18'%3ESalle Philippe Le Bel%3C/text%3E%3C/svg%3E" alt="Salle Philippe Le Bel">
-                    </div>
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600" alt="Salle Philippe Le Bel" loading="lazy">
                     <div class="card-content">
-                        <h3 class="card-title">Salle Philippe Le Bel</h3>
-                        <p class="card-text">180 m² pouvant accueillir 140 convives assis ou 200 en cocktail. Un espace élégant avec vue sur les jardins historiques.</p>
-                        <a href="#contact" class="btn">En savoir plus</a>
+                        <h3>Salle Philippe Le Bel</h3>
+                        <p>120 couverts dans un cadre royal authentique avec vue sur les jardins</p>
+                        <a href="salle-philippe.html" class="btn">Découvrir</a>
                     </div>
                 </div>
                 
-                <div class="card fade-in">
-                    <div class="card-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23e8e8e8'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='18'%3ESalle Charles VII%3C/text%3E%3C/svg%3E" alt="Salle Charles VII">
-                    </div>
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Salle Charles VII" loading="lazy">
                     <div class="card-content">
-                        <h3 class="card-title">Salle Charles VII</h3>
-                        <p class="card-text">Sur deux niveaux, 460 m² au total pour accueillir jusqu'à 350 convives. L'espace idéal pour vos grandes réceptions.</p>
-                        <a href="#contact" class="btn">En savoir plus</a>
+                        <h3>Salle Charles VII</h3>
+                        <p>220 couverts pour vos grandes réceptions dans une atmosphère majestueuse</p>
+                        <a href="salle-charles.html" class="btn">Découvrir</a>
                     </div>
                 </div>
             </div>
@@ -620,286 +94,210 @@
     </section>
 
     <!-- Section Mariages -->
-    <section class="section" id="mariages">
+    <section class="section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Mariages de Prestige</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="content-block reverse">
-                <div class="content-image fade-in">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='20'%3EMariage au château%3C/text%3E%3C/svg%3E" alt="Mariage au château">
+            <p class="lead text-center animate-on-scroll">
+                Plus de 850 mariages célébrés depuis 30 ans dans ce cadre d'exception
+            </p>
+            <div class="grid">
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600" alt="Cérémonie" loading="lazy">
+                    <div class="card-content">
+                        <h3>Cérémonies</h3>
+                        <p>Religieuses ou laïques dans notre Sainte Chapelle historique</p>
+                    </div>
                 </div>
-                <div class="content-text">
-                    <h3>Votre Mariage de Rêve</h3>
-                    <p>Plus de 850 mariages célébrés depuis 30 ans dans ce cadre d'exception. De la cérémonie dans notre Sainte Chapelle historique jusqu'à la soirée dansante, vivez un moment unique et inoubliable.</p>
-                    <p>Nos formules tout inclus comprennent : la location des espaces sans limite d'heure, le menu gastronomique et les boissons, la décoration florale personnalisée et l'illumination féerique du château toute la nuit.</p>
-                    <a href="#contact" class="btn">Découvrir nos formules</a>
+                
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600" alt="Package" loading="lazy">
+                    <div class="card-content">
+                        <h3>Package Clé en Main</h3>
+                        <p>Formules complètes pour un mariage sans stress avec coordination dédiée</p>
+                    </div>
                 </div>
+                
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Menu" loading="lazy">
+                    <div class="card-content">
+                        <h3>Notre Menu</h3>
+                        <p>Gastronomie raffinée par nos chefs étoilés et traiteurs partenaires</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
+                <a href="formule-mariage.html" class="btn">Découvrir nos formules mariages</a>
             </div>
         </div>
     </section>
 
-    <!-- Section Entreprises -->
-    <section class="section section-alt" id="entreprises">
+    <!-- Section Séminaires -->
+    <section class="section bg-elegant">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2>Séminaires & Événements d'Entreprise</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="content-block">
-                <div class="content-text">
-                    <h3>Un Cadre Inspirant pour vos Événements</h3>
-                    <p>À seulement 35 minutes de Paris Bercy, le Château du Vivier offre un cadre prestigieux et fonctionnel pour tous vos événements professionnels.</p>
-                    <p>Séminaires, team building, lancements de produits ou soirées de gala : nos espaces modulables s'adaptent à vos besoins avec des capacités allant jusqu'à 350 personnes.</p>
-                    <a href="#contact" class="btn">Organiser votre événement</a>
+            <p class="lead text-center animate-on-scroll">
+                Un cadre prestigieux pour vos réunions, séminaires et soirées d'entreprise. 
+                Équipements modernes dans un environnement historique unique.
+            </p>
+            <div class="grid" style="margin-top: 50px;">
+                <div class="card animate-on-scroll">
+                    <div class="card-content">
+                        <h3>Réunions</h3>
+                        <p>Salles équipées pour 20 à 300 personnes avec matériel audiovisuel haute définition</p>
+                    </div>
                 </div>
-                <div class="content-image fade-in">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='20'%3ESéminaire au château%3C/text%3E%3C/svg%3E" alt="Séminaire au château">
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-content">
+                        <h3>Team Building</h3>
+                        <p>Activités fédératrices dans notre parc de 25 hectares et chasses au trésor historiques</p>
+                    </div>
                 </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-content">
+                        <h3>Soirées de Gala</h3>
+                        <p>Réceptions prestigieuses jusqu'à 300 convives avec service traiteur haut de gamme</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
+                <a href="formule-entreprise.html" class="btn">Nos formules entreprises</a>
             </div>
         </div>
     </section>
 
-    <!-- Section Galerie -->
-    <section class="section" id="galerie">
+    <!-- Section Portfolio -->
+    <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Découvrez le Château en Images</h2>
+            <div class="section-header animate-on-scroll">
+                <h2>Portfolio</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='16'%3ELes Jardins%3C/text%3E%3C/svg%3E" alt="Les jardins">
-                    <div class="gallery-caption">
-                        <h4>Les Jardins Historiques</h4>
-                        <p>7 hectares de parc arboré</p>
-                    </div>
+            <p class="lead text-center animate-on-scroll">
+                Découvrez en images l'élégance et la majesté du Château du Vivier à travers 
+                les événements que nous avons eu l'honneur d'accueillir.
+            </p>
+            <div class="grid" style="margin-top: 50px;">
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600" alt="Mariage au château" loading="lazy">
                 </div>
-                
-                <div class="gallery-item fade-in">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='16'%3ERéception%3C/text%3E%3C/svg%3E" alt="Réception">
-                    <div class="gallery-caption">
-                        <h4>Réceptions Élégantes</h4>
-                        <p>Décoration raffinée</p>
-                    </div>
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600" alt="Réception dans la grande salle" loading="lazy">
                 </div>
-                
-                <div class="gallery-item fade-in">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect fill='%23e0e0e0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='16'%3EÉvénement%3C/text%3E%3C/svg%3E" alt="Événement">
-                    <div class="gallery-caption">
-                        <h4>Moments Inoubliables</h4>
-                        <p>Créez vos souvenirs</p>
-                    </div>
+                <div class="card animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Événement d'entreprise" loading="lazy">
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#galerie" class="btn">Voir toute la galerie</a>
+            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
+                <a href="portfolio.html" class="btn">Voir tout le portfolio</a>
             </div>
         </div>
     </section>
 
     <!-- Section Témoignages -->
-    <section class="section section-alt">
+    <section class="section bg-light">
         <div class="container">
-            <div class="section-header">
-                <h2>Ils Nous Font Confiance</h2>
+            <div class="section-header animate-on-scroll">
+                <h2>Témoignages</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="card-grid">
-                <div class="card fade-in">
+            <div class="grid">
+                <div class="card animate-on-scroll">
                     <div class="card-content">
-                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
-                            "Non seulement l'endroit est magnifique, mais en plus les propriétaires Anne et Philippe sont des gens adorables ! La cérémonie laïque dans les ruines est exceptionnelle, le vin d'honneur sensationnel. Cet endroit est à réserver les yeux fermés !"
+                        <p style="font-style: italic; margin-bottom: 20px;">
+                            "Un cadre exceptionnel pour le plus beau jour de notre vie. L'équipe du château 
+                            a rendu notre mariage féerique. La Sainte Chapelle est d'une beauté à couper le souffle."
                         </p>
-                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Mathieu & Sophie</h4>
-                        <p style="font-size: 0.9rem;">Mariage - Juillet 2023</p>
+                        <p><strong>Marie & Thomas</strong><br>Mariage - Juin 2024</p>
                     </div>
                 </div>
                 
-                <div class="card fade-in">
+                <div class="card animate-on-scroll">
                     <div class="card-content">
-                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
-                            "Un cadre exceptionnel pour notre séminaire annuel. Le château a sublimé notre événement et impressionné tous nos collaborateurs. L'équipe est aux petits soins et très professionnelle."
+                        <p style="font-style: italic; margin-bottom: 20px;">
+                            "Notre séminaire annuel au Château du Vivier a été un véritable succès. 
+                            Le cadre historique a inspiré nos équipes et renforcé notre cohésion."
                         </p>
-                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Direction Générale</h4>
-                        <p style="font-size: 0.9rem;">Entreprise CAC 40 - Septembre 2023</p>
+                        <p><strong>Direction Générale</strong><br>Groupe CAC 40 - Septembre 2024</p>
                     </div>
                 </div>
                 
-                <div class="card fade-in">
+                <div class="card animate-on-scroll">
                     <div class="card-content">
-                        <p style="font-style: italic; color: var(--text-light); line-height: 1.8;">
-                            "Le lieu parfait pour notre lancement de produit. L'histoire du château a donné une dimension unique à notre événement. Nos clients ont été conquis par le cadre exceptionnel."
+                        <p style="font-style: italic; margin-bottom: 20px;">
+                            "La combinaison parfaite entre histoire et modernité. Les espaces sont magnifiques 
+                            et l'équipe est aux petits soins. Une adresse incontournable."
                         </p>
-                        <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Marie D.</h4>
-                        <p style="font-size: 0.9rem;">Événement corporate - Mai 2023</p>
+                        <p><strong>Sophie L.</strong><br>Événement privé - Mai 2024</p>
                     </div>
                 </div>
+            </div>
+            <div class="text-center animate-on-scroll" style="margin-top: 40px;">
+                <a href="temoignages.html" class="btn">Tous les témoignages</a>
             </div>
         </div>
     </section>
 
     <!-- Section Contact -->
-    <section class="section" id="contact">
+    <section class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Visitez le Château du Vivier</h2>
+            <div class="section-header animate-on-scroll">
+                <h2>Visitez le Château</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="content-block">
-                <div class="content-text" style="text-align: center;">
-                    <h3>Planifiez Votre Visite</h3>
-                    <p>Nous serions ravis de vous faire découvrir le Château du Vivier et de discuter de votre projet. Visites sur rendez-vous uniquement.</p>
-                    
-                    <div style="margin: 2rem 0;">
-                        <p><strong>Gaëtan Delbarre</strong><br>
-                        <em>Directeur du Château</em></p>
-                        <p>📞 07 86 85 21 37<br>
-                        📧 visitechateauduvivier@gmail.com</p>
-                    </div>
-                    
-                    <div class="hero-buttons">
-                        <a href="mailto:visitechateauduvivier@gmail.com" class="btn">Demander un rendez-vous</a>
-                        <a href="https://maps.google.com/maps?q=Château+du+Vivier+Seine-et-Marne" target="_blank" class="btn btn-outline" style="background: white; color: var(--primary-color); border-color: var(--primary-color);">Voir sur la carte</a>
-                    </div>
+            <div class="text-center animate-on-scroll">
+                <p class="lead">
+                    Nous serions ravis de vous faire découvrir le Château du Vivier 
+                    et de discuter de votre projet. Visites sur rendez-vous uniquement.
+                </p>
+                <div style="margin-top: 40px;">
+                    <h3>Gaëtan Delbarre</h3>
+                    <p style="font-style: italic;">Directeur du Château</p>
+                    <p style="margin-top: 20px;">
+                        📧 visitechateauduvivier@gmail.com<br>
+                        📱 07 86 85 21 37<br>
+                        📍 Fontenay-Trésigny, Seine-et-Marne (77)<br>
+                        45 km de Paris - 35 min de Paris Bercy
+                    </p>
                 </div>
-                
-                <div class="content-image fade-in">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-family='sans-serif' font-size='20'%3EVue aérienne%3C/text%3E%3C/svg%3E" alt="Vue aérienne du château">
+                <div style="margin-top: 40px;">
+                    <a href="contact.html" class="btn">Planifier une visite</a>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Voir sur la carte</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Château du Vivier</h3>
-                    <p>Palais Royal depuis Philippe IV Le Bel<br>
-                    Monument historique en Seine-et-Marne<br>
-                    À 45 km de Paris</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="#histoire">Notre Histoire</a></li>
-                        <li><a href="#espaces">Nos Espaces</a></li>
-                        <li><a href="#mariages">Mariages</a></li>
-                        <li><a href="#entreprises">Événements d'Entreprise</a></li>
-                        <li><a href="#galerie">Galerie</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#mariages">Mariages & Réceptions</a></li>
-                        <li><a href="#entreprises">Séminaires d'Entreprise</a></li>
-                        <li><a href="#espaces">Location de Salles</a></li>
-                        <li><a href="#contact">Visites Privées</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Gaëtan Delbarre<br>
-                    Directeur du Château<br>
-                    📞 07 86 85 21 37<br>
-                    📧 visitechateauduvivier@gmail.com</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Château du Vivier - Tous droits réservés | <a href="#" style="color: inherit;">Mentions légales</a> | <a href="#" style="color: inherit;">Politique de confidentialité</a></p>
-            </div>
-        </div>
-    </footer>
+    <!-- Le footer sera automatiquement inséré ici par menu.js -->
 
-    <!-- JavaScript intégré -->
+    <!-- Scripts -->
+    <script src="menu.js"></script>
     <script>
-        // Menu mobile toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        // Animations au scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
             
-            // Animation burger menu
-            const spans = navToggle.querySelectorAll('span');
-            spans[0].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translateY(8px)' : '';
-            spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
-            spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(-45deg) translateY(-8px)' : '';
-        });
-        
-        // Fermer le menu mobile lors du clic sur un lien
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const spans = navToggle.querySelectorAll('span');
-                spans[0].style.transform = '';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = '';
-            });
-        });
-        
-        // Animation au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
-        
-        // Smooth scroll pour les ancres
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Navigation sticky avec changement d'apparence
-        const nav = document.querySelector('nav');
-        let lastScroll = 0;
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
             
-            if (currentScroll > 100) {
-                nav.style.padding = '0.5rem 0';
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
-            } else {
-                nav.style.padding = '';
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            }
-            
-            lastScroll = currentScroll;
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
         });
     </script>
 </body>
