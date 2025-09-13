@@ -516,12 +516,19 @@ a {
         align-items: center;
     }
     
-    .content-grid {
+    .content-grid,
+    .modern-content-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
     
-    .content-grid.reverse {
+    .modern-content-image img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .content-grid.reverse,
+    .modern-content-grid.reverse {
         direction: ltr;
     }
     
