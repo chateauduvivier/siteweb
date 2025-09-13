@@ -815,6 +815,16 @@ a {
         height: 350px;
     }
     
+    .three-cards-showcase {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .showcase-card {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+    
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
